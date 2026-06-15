@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shreyas Karnad - Health Informatics & AI</title>
+<title>Shreyas Karnad — Health Informatics & AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink: #1a1a1a;
@@ -34,21 +34,22 @@ body {
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: var(--paper);
+  background: rgba(248,246,241,0.95);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
   z-index: 100;
-  padding: 0 2rem;
+  padding: 0 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 52px;
 }
 
 .nav-logo {
   font-family: 'DM Mono', monospace;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--accent);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-decoration: none;
 }
 
@@ -62,7 +63,7 @@ nav {
   font-size: 13px;
   color: var(--ink-muted);
   text-decoration: none;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   transition: color 0.2s;
 }
 
@@ -72,8 +73,8 @@ nav {
 .hero {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 56px;
+  grid-template-columns: 3fr 2fr;
+  padding-top: 52px;
 }
 
 .hero-text {
@@ -105,7 +106,7 @@ nav {
 
 h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
   line-height: 1.05;
   color: var(--ink);
   margin-bottom: 1.5rem;
@@ -118,11 +119,11 @@ h1 em {
 }
 
 .hero-desc {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--ink-muted);
-  max-width: 44ch;
+  max-width: 46ch;
   margin-bottom: 2.5rem;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .hero-ctas {
@@ -134,12 +135,12 @@ h1 em {
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  padding: 0.75rem 1.75rem;
+  padding: 0.7rem 1.6rem;
   border-radius: 2px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   transition: background 0.2s;
 }
 
@@ -148,50 +149,72 @@ h1 em {
 .btn-secondary {
   background: transparent;
   color: var(--accent);
-  padding: 0.75rem 1.75rem;
+  padding: 0.7rem 1.6rem;
   border-radius: 2px;
   border: 1px solid var(--accent);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   transition: all 0.2s;
 }
 
 .btn-secondary:hover { background: var(--accent-light); }
 
+/* HERO RIGHT — tighter */
 .hero-right {
   background: var(--paper-warm);
   border-left: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem;
-  gap: 2rem;
+  align-items: flex-start;
+  padding: 3rem 3rem 3rem 3.5rem;
+  gap: 1.5rem;
+}
+
+.hero-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--rule);
+  margin-bottom: 0.5rem;
 }
 
 .stat-card {
   border-left: 2px solid var(--accent);
-  padding-left: 1.25rem;
+  padding-left: 1rem;
 }
 
 .stat-num {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: var(--accent);
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ink-muted);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
 }
 
-/* SECTIONS */
-section {
-  padding: 6rem 5rem;
+/* SECTION WRAPPER */
+.section-wrap {
+  padding: 5.5rem 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-wrap-alt {
+  background: var(--paper-warm);
+}
+
+.section-wrap-alt-inner {
+  padding: 5.5rem 5rem;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -199,24 +222,79 @@ section {
 .section-header {
   display: flex;
   align-items: baseline;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid var(--rule);
-  padding-bottom: 1rem;
+  padding-bottom: 0.875rem;
 }
 
 .section-num {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--ink-faint);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2rem;
+  font-size: 1.85rem;
   color: var(--ink);
   letter-spacing: -0.01em;
+}
+
+/* PROJECTS (now first after hero) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(29,78,107,0.06);
+}
+
+.project-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+
+.project-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.project-highlight {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--teal);
+  background: var(--teal-bg);
+  padding: 0.3rem 0.65rem;
+  border-radius: 2px;
+  display: inline-block;
+  letter-spacing: 0.03em;
 }
 
 /* ABOUT */
@@ -229,8 +307,9 @@ h2 {
 
 .about-text p {
   color: var(--ink-muted);
-  margin-bottom: 1.25rem;
-  font-size: 1.02rem;
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 .about-text p strong { color: var(--ink); font-weight: 500; }
@@ -238,178 +317,101 @@ h2 {
 .about-links {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .about-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   text-decoration: none;
   color: var(--ink-muted);
-  font-size: 14px;
-  padding: 0.75rem 1rem;
-  background: var(--paper-warm);
+  font-size: 13px;
+  padding: 0.65rem 0.9rem;
+  background: #fff;
   border: 1px solid var(--rule);
   border-radius: 2px;
   transition: all 0.2s;
 }
 
 .about-link:hover { color: var(--accent); border-color: var(--accent); }
-
-.about-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+.about-link svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* EXPERIENCE */
 .exp-item {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 170px 1fr;
   gap: 2rem;
   margin-bottom: 2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: 1px solid var(--rule);
 }
 
-.exp-item:last-child { border-bottom: none; }
-
-.exp-meta {
-  padding-top: 0.2rem;
-}
+.exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
 .exp-date {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--ink-faint);
   letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   line-height: 1.6;
+  padding-top: 0.25rem;
 }
 
 .exp-org {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent);
   font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .exp-role {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--ink);
   margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
 }
 
-.exp-desc {
-  font-size: 14px;
-  color: var(--ink-muted);
-  line-height: 1.75;
+.exp-bullets {
+  list-style: none;
   margin-bottom: 0.75rem;
+}
+
+.exp-bullets li {
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
+  font-size: 11px;
+  top: 0.2rem;
 }
 
 .exp-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.35rem;
   margin-top: 0.75rem;
 }
 
 .tag {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  padding: 0.2rem 0.6rem;
+  font-size: 9px;
+  padding: 0.2rem 0.55rem;
   background: var(--accent-light);
   color: var(--accent);
   border-radius: 2px;
   letter-spacing: 0.05em;
-}
-
-/* PROJECTS */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.project-card {
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 1.75rem;
-  transition: border-color 0.2s;
-}
-
-.project-card:hover { border-color: var(--accent); }
-
-.project-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--ink-faint);
-  letter-spacing: 0.1em;
-  margin-bottom: 0.75rem;
-}
-
-.project-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.15rem;
-  color: var(--ink);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.project-desc {
-  font-size: 13px;
-  color: var(--ink-muted);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-.project-highlight {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--teal);
-  background: var(--teal-bg);
-  padding: 0.4rem 0.75rem;
-  border-radius: 2px;
-  display: inline-block;
-}
-
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-group {
-  padding: 1.5rem;
-  background: var(--paper-warm);
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-}
-
-.skill-group-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.skill-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.skill-list li {
-  font-size: 13px;
-  color: var(--ink-muted);
-  background: #fff;
-  border: 1px solid var(--rule);
-  padding: 0.2rem 0.6rem;
-  border-radius: 2px;
 }
 
 /* PUBLICATION */
@@ -423,32 +425,65 @@ h2 {
   align-items: flex-start;
 }
 
-.pub-icon {
-  font-size: 2rem;
-  opacity: 0.6;
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-}
+.pub-icon { font-size: 1.75rem; opacity: 0.5; flex-shrink: 0; margin-top: 0.2rem; }
 
 .pub-journal {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  opacity: 0.7;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  opacity: 0.65;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 
 .pub-title {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   line-height: 1.4;
   margin-bottom: 0.5rem;
 }
 
-.pub-meta {
-  font-size: 13px;
-  opacity: 0.7;
+.pub-title a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.pub-meta { font-size: 13px; opacity: 0.65; line-height: 1.6; }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.skill-group {
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+.skill-group-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skill-list li {
+  font-size: 12px;
+  color: var(--ink-muted);
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
 }
 
 /* CONTACT */
@@ -461,49 +496,49 @@ h2 {
 
 .contact-text h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   color: var(--ink);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   letter-spacing: -0.01em;
 }
 
 .contact-text p {
   color: var(--ink-muted);
   margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
+  line-height: 1.8;
 }
 
 .contact-links {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   text-decoration: none;
   color: var(--ink-muted);
-  font-size: 14px;
+  font-size: 13.5px;
   transition: color 0.2s;
 }
 
 .contact-link:hover { color: var(--accent); }
-
-.contact-link svg { width: 16px; height: 16px; }
+.contact-link svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* FOOTER */
 footer {
   border-top: 1px solid var(--rule);
-  padding: 2rem 5rem;
+  padding: 1.75rem 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 footer p {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--ink-faint);
   font-family: 'DM Mono', monospace;
 }
@@ -513,20 +548,21 @@ footer p {
   .hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
   .hero-text { padding: 3rem 1.5rem; }
-  section { padding: 3rem 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-  .contact-grid { grid-template-columns: 1fr; }
-  footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+  .section-wrap { padding: 3.5rem 1.5rem; }
+  .section-wrap-alt-inner { padding: 3.5rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
   nav { padding: 0 1rem; }
   .nav-links { gap: 1rem; }
 }
 
-/* SCROLL ANIMATION */
+/* FADE IN */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
 .fade-in.visible {
   opacity: 1;
@@ -536,40 +572,41 @@ footer p {
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">SK - Health Informatics</a>
+  <a href="#" class="nav-logo">SK — Health Informatics & AI</a>
   <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding: 0; max-width: none;">
+<section class="hero" style="padding:0; max-width:none;">
   <div class="hero-text">
-    <div class="hero-tag">MHI '26 - University of Michigan</div>
+    <div class="hero-tag">MHI '26 — University of Michigan</div>
     <h1>Shreyas<br><em>Karnad</em></h1>
-    <p class="hero-desc">Health Informatics graduate building at the intersection of clinical AI, population health analytics, and FHIR interoperability. From multi-agent LLM systems to sepsis risk models, I make healthcare data work harder.</p>
+    <p class="hero-desc">Health Informatics graduate building at the intersection of clinical AI, population health analytics, and FHIR interoperability. From 9-agent LLM systems to sepsis risk models — I make healthcare data work harder.</p>
     <div class="hero-ctas">
       <a href="Shreyas_Karnad_CV.pdf" class="btn-primary" download>Download CV</a>
       <a href="#projects" class="btn-secondary">View Projects</a>
     </div>
   </div>
   <div class="hero-right">
-    <img src="photo.jpg" alt="Shreyas Karnad" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rule); margin-bottom: 1rem;">
+    <img src="photo.jpg" alt="Shreyas Karnad" class="hero-photo">
     <div class="stat-card">
       <div class="stat-num">3.936</div>
-      <div class="stat-label">GPA - Master of Health Informatics</div>
+      <div class="stat-label">GPA — Master of Health Informatics</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">9</div>
-      <div class="stat-label">Agents in deployed CrewAI LLM system</div>
+      <div class="stat-label">Agents in deployed CrewAI system</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">80%</div>
-      <div class="stat-label">Accuracy - sepsis risk classification model</div>
+      <div class="stat-label">Accuracy — sepsis risk classifier</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">1</div>
@@ -578,18 +615,71 @@ footer p {
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- PROJECTS (01) -->
+<div class="section-wrap-alt">
+  <div class="section-wrap-alt-inner" id="projects">
+    <div class="section-header fade-in">
+      <span class="section-num">01</span>
+      <h2>Projects</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card fade-in">
+        <div class="project-num">AI GOVERNANCE</div>
+        <div class="project-title">EHR AI Hallucination Mitigation Framework</div>
+        <div class="project-desc">Investigated how LLM-generated outputs propagate as undetected errors through clinical documentation workflows. Proposed a Zero-Trust RAG framework with retrieval-based validation checkpoints and HIPAA-aligned accountability standards.</div>
+        <span class="project-highlight">RAG · LLM Governance · HIPAA</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">POPULATION HEALTH</div>
+        <div class="project-title">Structural Health Disparities & Sepsis Risk</div>
+        <div class="project-desc">Analyzed a large California county-level administrative healthcare dataset. Built a Random Forest classifier (80% accuracy) and multivariate regression identifying insurance coverage — not worker shortages — as the primary structural predictor of postoperative sepsis outcomes.</div>
+        <span class="project-highlight">Random Forest · SDOH · 80% accuracy</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">CLINICAL ML</div>
+        <div class="project-title">Diabetes Risk Assessment App + FHIR Output</div>
+        <div class="project-desc">Built an end-to-end ML pipeline for diabetes risk prediction in Python. Generated structured FHIR R4-formatted outputs enabling interoperable data sharing across health systems, demonstrating real-world clinical decision support applicability.</div>
+        <span class="project-highlight">FHIR R4 · scikit-learn · Python</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">STATISTICAL ANALYSIS</div>
+        <div class="project-title">Diabetes Risk — 768-Patient Clinical Dataset</div>
+        <div class="project-desc">Applied hypothesis testing (two-sample t-tests, p &lt; 2.2e-16) and multivariate linear regression in R to the Pima Indians diabetes dataset. Surfaced zero-value missingness as a systematic data quality issue affecting model reliability.</div>
+        <span class="project-highlight">R · Hypothesis Testing · p &lt; 2.2e-16</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">NETWORK ANALYSIS</div>
+        <div class="project-title">Breast Cancer Tumor Network Analysis</div>
+        <div class="project-desc">Compared K-Means and Spectral Clustering on the Wisconsin Diagnostic breast cancer dataset (32 features, 569 patients). Network centrality analysis identified concave_points_mean as the most diagnostically influential tumor feature.</div>
+        <span class="project-highlight">Spectral Clustering · Network Centrality</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">CLINICAL ML</div>
+        <div class="project-title">IVF Success Prediction — Metabolite Classification</div>
+        <div class="project-desc">Applied Logistic Regression, KNN, and Naïve Bayes to a clinical IVF dataset (55 patients, 14 biological metabolites). KNN achieved 83% accuracy on optimized metabolite combinations. M.Tech capstone, Manipal Institute of Technology.</div>
+        <span class="project-highlight">KNN · 83% accuracy · 14 metabolites</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT (02) -->
+<div class="section-wrap" id="about">
   <div class="section-header fade-in">
-    <span class="section-num">01</span>
+    <span class="section-num">02</span>
     <h2>About</h2>
   </div>
   <div class="about-grid fade-in">
     <div class="about-text">
-      <p>I'm a <strong>Health Informatics graduate of the University of Michigan</strong> (MHI, Machine Learning & Data Analytics) and a Biomedical Engineer by training. My work sits at the intersection of clinical AI, healthcare data systems, and translational health analytics.</p>
-      <p>At the Biocomplexity Institute at Indiana University, I designed and deployed a <strong>9-agent CrewAI pipeline</strong> for biological simulation code generation which is one of the more technically complex agentic AI systems I've built. My academic projects span SDOH-driven sepsis risk modeling, AI hallucination governance in EHR systems, diabetes risk stratification, and FHIR-interoperable clinical data pipelines.</p>
-      <p>Before Michigan, I spent two years at <strong>Siamaf Healthcare</strong> building ML models for surgical oncology clinical decision support and conducting primary research with clinical teams. My biomedical engineering background gives me a clinical grounding most data scientists don't have: I understand what the data represents before I analyze it.</p>
-      <p>I'm authorized to work in the US under <strong>F-1 OPT</strong> beginning June 22, 2026, with a 3-year window under STEM OPT extension eligibility.</p>
+      <p>I'm a <strong>Health Informatics graduate of the University of Michigan</strong> (MHI, Machine Learning & Data Analytics, GPA 3.936) and a Biomedical Engineer by training. My work sits at the intersection of clinical AI, healthcare data systems, and translational population health analytics.</p>
+      <p>At the Biocomplexity Institute at Indiana University, I designed and deployed a <strong>9-agent CrewAI pipeline</strong> for automated biomedical data processing — one of the more technically complex agentic AI systems I've built, involving custom Python wrappers, LLM inference cost optimization, and zero-shot failure mode documentation.</p>
+      <p>Before Michigan, I spent two years at <strong>Siamaf Healthcare</strong> building deep learning models for intraoperative surgical oncology applications and conducting primary research with 20+ surgical oncologists. That clinical grounding shapes how I approach data problems — I understand what the data represents before I analyze it.</p>
+      <p>I'm authorized to work in the US under <strong>F-1 OPT beginning June 22, 2026</strong>, with a 3-year window under STEM OPT extension eligibility. Open to relocation across the US.</p>
     </div>
     <div class="about-links">
       <a href="mailto:shreyas01karnad@outlook.com" class="about-link">
@@ -610,80 +700,97 @@ footer p {
       </a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- EXPERIENCE -->
-<section id="experience" style="background: var(--paper-warm); max-width: none; padding: 6rem 0;">
-  <div style="max-width: 1100px; margin: 0 auto; padding: 0 5rem;">
+<!-- EXPERIENCE (03) -->
+<div class="section-wrap-alt" id="experience">
+  <div class="section-wrap-alt-inner">
     <div class="section-header fade-in">
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <h2>Experience</h2>
     </div>
 
     <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <div class="exp-date">Jan 2026 - May 2026</div>
-        <div class="exp-org">University of Michigan - School of Public Health</div>
+      <div>
+        <div class="exp-date">JAN 2026 — MAY 2026</div>
+        <div class="exp-org">University of Michigan<br>School of Public Health</div>
       </div>
       <div>
         <div class="exp-role">Grader, Public Health Informatics</div>
-        <div class="exp-desc">Evaluated 94 graduate-level public health informatics assignments per cycle using structured rubrics for HMP669: Data Management And Visualization In Healthcare course. Maintained consistent scoring standards and provided detailed written feedback on analytical approach and data interpretation, reducing instructor review time across the semester. Collaborated with Prof. Rahul Ladhania on rubric design and quality assurance;</div>
+        <ul class="exp-bullets">
+          <li>Evaluated 98+ graduate-level assignments per cycle using structured rubrics for HMP669: Data Management and Visualization in Healthcare, maintaining consistent scoring standards across the semester.</li>
+          <li>Collaborated with Prof. Rahul Ladhania on rubric design, dispute resolution, and quality assurance; identified and corrected systematic grading inconsistencies before grade release.</li>
+        </ul>
         <div class="exp-tags">
-          <span class="tag">Public Health Informatics</span><span class="tag">Statistical Analysis</span><span class="tag">Data Interpretation</span>
+          <span class="tag">Public Health Informatics</span><span class="tag">Data Interpretation</span><span class="tag">Statistical Analysis</span>
         </div>
       </div>
     </div>
 
-<div class="exp-item fade-in">
-      <div class="exp-meta">
-        <div class="exp-date">Sep 2025 - Dec 2025</div>
-        <div class="exp-org">University of Michigan - School of Information</div>
+    <div class="exp-item fade-in">
+      <div>
+        <div class="exp-date">SEP 2025 — DEC 2025</div>
+        <div class="exp-org">University of Michigan<br>School of Information</div>
       </div>
       <div>
         <div class="exp-role">Instructional Aid, Health Informatics & Database Management</div>
-        <div class="exp-desc">Supported a 150+ student SI544: SI 544- Introduction to Statistics and Data Analysis course by evaluating statistical analysis methods, data visualization, and database concepts in exams by students with varying technical backgrounds. Collaborated with Prof. Bobby Madamanchi on exam design and grading; identified and corrected systematic grading inconsistencies before grade release.</div>
+        <ul class="exp-bullets">
+          <li>Supported SI544 (Introduction to Statistics and Data Analysis) for 150+ students with varying programming backgrounds, evaluating statistical methods, data visualization, and database concepts.</li>
+          <li>Collaborated with Prof. Bobby Madamanchi on exam design and grading across 3 exam cycles; identified and corrected systematic inconsistencies before grade release.</li>
+        </ul>
         <div class="exp-tags">
-          <span class="tag">Health Informatics</span><span class="tag">Database Management</span><span class="tag">Teaching</span><span class="tag">Statistical Methods</span>
+          <span class="tag">Health Informatics</span><span class="tag">Database Management</span><span class="tag">Statistical Methods</span>
         </div>
       </div>
     </div>
-    
+
     <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <div class="exp-date">Jun 2025 - Aug 2025</div>
-        <div class="exp-org">Indiana University</div>
+      <div>
+        <div class="exp-date">JUN 2025 — AUG 2025</div>
+        <div class="exp-org">Biocomplexity Institute<br>Indiana University</div>
       </div>
       <div>
         <div class="exp-role">Data Science Intern</div>
-        <div class="exp-desc">Designed and deployed a 9-agent CrewAI agentic AI system for biological simulation code generation from natural language. Replaced OpenAI with DeepSeek Replicate via custom Python wrapper. Built ontology extraction pipelines and documented LLM failure modes to guide iterative pipeline refinement.</div>
+        <ul class="exp-bullets">
+          <li>Designed schema-based JSON pipelines to automatically generate syntactically valid CompuCell3D biological simulation code from research paper abstracts; documented zero-shot LLM failure modes to guide iterative pipeline refinement.</li>
+          <li>Re-engineered a 9-agent CrewAI system to replace OpenAI with DeepSeek Replicate via a custom Python wrapper, resolving API environment conflicts and reducing inference costs while maintaining code generation accuracy.</li>
+          <li>Translated natural-language biological modeling questions into structured computational parameters via an NL → ontology → code framework, enabling non-programmer researchers to generate simulation-ready outputs.</li>
+        </ul>
         <div class="exp-tags">
-          <span class="tag">CrewAI</span><span class="tag">DeepSeek</span><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Ontology Extraction</span>
+          <span class="tag">CrewAI</span><span class="tag">DeepSeek</span><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Ontology Extraction</span><span class="tag">LLM Pipelines</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <div class="exp-date">Aug 2023 - Aug 2024</div>
-        <div class="exp-org">Siamaf Healthcare</div>
+      <div>
+        <div class="exp-date">AUG 2023 — AUG 2024</div>
+        <div class="exp-org">Siamaf Healthcare<br>Bengaluru, India</div>
       </div>
       <div>
         <div class="exp-role">Associate Biomedical Engineer</div>
-        <div class="exp-desc">Evaluated deep learning classification models (ResNet50, GoogLeNet, DenseNet) in MATLAB Deep Learning Toolbox to classify harmonic signature data from magnetic nanoparticle-based intraoperative sentinel lymph node detection, achieving 96-100% accuracy distinguishing tumor-present from tumor-absent nodes. Integrated MATLAB with LabVIEW to interface with MafPro magnetic field probe hardware; deployed ML inference pipelines to AWS S3-connected cloud servers enabling remote clinics without high-end NPU hardware to offload classification to cloud infrastructure. Designed a ruggedized field enclosure in Fusion 360 housing a Surface Pro with NPU, battery pack, and CAT8 magnetic detector port with a locked-down Windows 11 clinical deployment environment.</div>
+        <ul class="exp-bullets">
+          <li>Evaluated deep learning classification models (ResNet50, GoogLeNet, DenseNet) in MATLAB Deep Learning Toolbox to classify harmonic signature data from intraoperative sentinel lymph node detection; achieved 96–100% accuracy distinguishing tumor-present from tumor-absent nodes.</li>
+          <li>Deployed ML inference pipelines to AWS S3-connected cloud servers, enabling remote clinics without high-end NPU hardware to offload classification tasks and receive results in real time.</li>
+          <li>Designed a ruggedized field enclosure in Fusion 360 housing a Surface Pro with NPU and battery pack; implemented a locked-down Windows 11 environment producing a deployment-ready clinical device prototype.</li>
+        </ul>
         <div class="exp-tags">
-          <span class="tag">ResNet50</span><span class="tag">GoogLeNet</span><span class="tag">DenseNet</span><span class="tag">MATLAB DL Toolbox</span><span class="tag">LabVIEW</span><span class="tag">AWS S3</span><span class="tag">Fusion 360</span><span class="tag">Harmonic Signal Analysis</span>
+          <span class="tag">ResNet50</span><span class="tag">GoogLeNet</span><span class="tag">DenseNet</span><span class="tag">MATLAB DL Toolbox</span><span class="tag">AWS S3</span><span class="tag">LabVIEW</span>
         </div>
       </div>
     </div>
 
     <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <div class="exp-date">Aug 2022 - Jul 2023</div>
-        <div class="exp-org">Siamaf Healthcare</div>
+      <div>
+        <div class="exp-date">AUG 2022 — JUL 2023</div>
+        <div class="exp-org">Siamaf Healthcare<br>Bengaluru, India</div>
       </div>
       <div>
         <div class="exp-role">Graduate Research Intern</div>
-        <div class="exp-desc">Conducted structured primary research with 20+ surgical oncologists to identify unmet clinical workflow needs, synthesizing findings into formal product requirements. Built and validated a magnetic probe prototype for intraoperative sentinel lymph node detection.</div>
+        <ul class="exp-bullets">
+          <li>Conducted structured primary research with 20+ surgical oncologists to identify unmet clinical workflow needs; synthesized findings into formal product requirements that shaped the development roadmap.</li>
+          <li>Built and validated a magnetic probe prototype for intraoperative sentinel lymph node detection; analyzed experimental sensor data using time-series methods and contributed findings to M.Tech thesis.</li>
+        </ul>
         <div class="exp-tags">
           <span class="tag">Clinical Research</span><span class="tag">Requirements Analysis</span><span class="tag">Time-Series Analysis</span>
         </div>
@@ -691,76 +798,26 @@ footer p {
     </div>
 
     <div class="exp-item fade-in">
-      <div class="exp-meta">
-        <div class="exp-date">Jan 2021 - Jun 2021</div>
-        <div class="exp-org">TATA Elxsi</div>
+      <div>
+        <div class="exp-date">JAN 2021 — JUN 2021</div>
+        <div class="exp-org">TATA Elxsi<br>St. Paul, MN (Remote)</div>
       </div>
       <div>
         <div class="exp-role">Project Intern</div>
-        <div class="exp-desc">Analyzed $12B+ in digital health investments across 50+ companies. Built weighted scoring models to identify high-growth sectors. Mapped FDA and IMDRF SaMD regulatory frameworks producing a risk classification reference guide for product development planning.</div>
+        <ul class="exp-bullets">
+          <li>Analyzed $12B+ in digital health investments across 50+ companies; built weighted scoring models to identify high-growth sectors including AI/ML, cloud computing, and IoT.</li>
+          <li>Mapped FDA and IMDRF SaMD regulatory frameworks, producing a risk classification reference guide used to inform product development planning.</li>
+        </ul>
         <div class="exp-tags">
           <span class="tag">SaMD Regulation</span><span class="tag">Strategic Analysis</span><span class="tag">Healthcare Market</span>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header fade-in">
-    <span class="section-num">03</span>
-    <h2>Projects</h2>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card fade-in">
-      <div class="project-num">01 - AI Governance</div>
-      <div class="project-title">EHR AI Hallucination Mitigation Framework</div>
-      <div class="project-desc">Investigated how LLM-generated outputs propagate as undetected errors through clinical documentation workflows. Proposed a Zero-Trust RAG framework with retrieval-based validation checkpoints and HIPAA-aligned accountability standards.</div>
-      <span class="project-highlight">RAG · LLM Governance · HIPAA</span>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">02 - Population Health</div>
-      <div class="project-title">Structural Health Disparities & Sepsis Risk</div>
-      <div class="project-desc">Analyzed a large California county-level administrative healthcare dataset. Built a Random Forest classifier (80% accuracy) and multivariate regression identifying insurance coverage as the primary structural predictor of postoperative sepsis outcomes.</div>
-      <span class="project-highlight">Random Forest · SDOH · 80% accuracy</span>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">03 - Clinical ML</div>
-      <div class="project-title">Diabetes Risk Assessment App + FHIR Output</div>
-      <div class="project-desc">Built an end-to-end ML pipeline for diabetes risk prediction in Python. Generated structured FHIR R4-formatted outputs enabling interoperable data sharing across health systems, demonstrating real-world clinical decision support applicability.</div>
-      <span class="project-highlight">FHIR R4 · scikit-learn · Python</span>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">04 - Statistical Analysis</div>
-      <div class="project-title">Diabetes Risk - 768-Patient Clinical Dataset</div>
-      <div class="project-desc">Applied hypothesis testing (two-sample t-tests, p &lt; 2.2e-16) and multivariate linear regression in R to the Pima Indians diabetes dataset. Surfaced zero-value missingness as a systematic data quality issue affecting model reliability.</div>
-      <span class="project-highlight">R · Hypothesis Testing · p &lt; 2.2e-16</span>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">05 - Network Analysis</div>
-      <div class="project-title">Breast Cancer Tumor Network Analysis</div>
-      <div class="project-desc">Compared K-Means and Spectral Clustering on the Wisconsin Diagnostic breast cancer dataset (32 features, 569 patients). Network centrality analysis identified concave_points_mean as the most diagnostically influential tumor feature.</div>
-      <span class="project-highlight">Spectral Clustering · Network Centrality</span>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-num">06 - Clinical ML</div>
-      <div class="project-title">IVF Success Prediction - Metabolite Classification</div>
-      <div class="project-desc">Applied Logistic Regression, KNN, and Naïve Bayes to a clinical IVF dataset (55 patients, 14 biological metabolites). KNN achieved 83% accuracy on optimized metabolite combinations. M.Tech capstone project, Manipal Institute of Technology.</div>
-      <span class="project-highlight">KNN · 83% accuracy · 14 metabolites</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- PUBLICATION -->
-<section style="padding: 0 5rem 5rem; max-width: 1100px; margin: 0 auto;">
+<!-- PUBLICATION (04) -->
+<div class="section-wrap">
   <div class="section-header fade-in">
     <span class="section-num">04</span>
     <h2>Publication</h2>
@@ -768,69 +825,63 @@ footer p {
   <div class="pub-card fade-in">
     <div class="pub-icon">📄</div>
     <div>
-      <div class="pub-journal">International Journal of Advanced and Applied Sciences - December 2023</div>
-      <div class="pub-title"><a href="https://www.science-gate.com/IJAAS/2023/V10I12/1021833ijaas202312004.html" target="_blank" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Current Trends of AI and Applications in Digital Pathology: A Comprehensive Review</a></div>
-      <div class="pub-meta">Peer-reviewed publication covering ML and deep learning methods for biological tissue analysis, AI-assisted diagnostics, and computational pathology. Published under the International Journal of Advanced and Applied Sciences (IJAAS).</div>
+      <div class="pub-journal">International Journal of Advanced and Applied Sciences — December 2023</div>
+      <div class="pub-title"><a href="https://www.science-gate.com/IJAAS/2023/V10I12/1021833ijaas202312004.html" target="_blank">Current Trends of AI and Applications in Digital Pathology: A Comprehensive Review</a></div>
+      <div class="pub-meta">Peer-reviewed publication covering ML and deep learning methods for biological tissue analysis, AI-assisted diagnostics, and computational pathology.</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- SKILLS -->
-<section style="background: var(--paper-warm); max-width: none; padding: 5rem 0;">
-  <div style="max-width: 1100px; margin: 0 auto; padding: 0 5rem;">
+<!-- SKILLS (05) -->
+<div class="section-wrap-alt">
+  <div class="section-wrap-alt-inner">
     <div class="section-header fade-in">
       <span class="section-num">05</span>
       <h2>Skills</h2>
     </div>
     <div class="skills-grid">
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">Programming</div>
-    <ul class="skill-list">
-      <li>Python</li><li>R</li><li>SQL</li><li>MATLAB</li><li>LabVIEW</li>
-    </ul>
-  </div>
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">GenAI / LLM</div>
-    <ul class="skill-list">
-      <li>CrewAI</li><li>OpenAI API</li><li>DeepSeek</li><li>RAG</li><li>Prompt Engineering</li><li>Multi-agent Systems</li>
-    </ul>
-  </div>
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">Deep Learning / ML</div>
-    <ul class="skill-list">
-      <li>ResNet50</li><li>GoogLeNet</li><li>DenseNet</li><li>MATLAB DL Toolbox</li><li>scikit-learn</li><li>Classification</li><li>Regression</li><li>Clustering</li>
-    </ul>
-  </div>
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">Statistics</div>
-    <ul class="skill-list">
-      <li>Hypothesis Testing</li><li>Biostatistics</li><li>Harmonic Signal Analysis</li><li>Time-Series Analysis</li><li>Predictive Modeling</li>
-    </ul>
-  </div>
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">Healthcare / Interop</div>
-    <ul class="skill-list">
-      <li>FHIR R4</li><li>HL7</li><li>HIE Architecture</li><li>EHR Systems</li><li>HIPAA</li><li>Clinical Decision Support</li>
-    </ul>
-  </div>
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">Cloud / Tools</div>
-    <ul class="skill-list">
-      <li>AWS S3</li><li>Git</li><li>VS Code</li><li>Fusion 360</li><li>Power BI</li><li>MySQL</li><li>Excel</li>
-    </ul>
-  </div>
-  <div class="skill-group fade-in">
-    <div class="skill-group-title">Education</div>
-    <ul class="skill-list">
-      <li>MHI - UMich 2026</li><li>M.Tech - Manipal 2023</li><li>B.Tech - MIT ADT 2021</li>
-    </ul>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Programming</div>
+        <ul class="skill-list">
+          <li>Python</li><li>R</li><li>SQL</li><li>MATLAB</li><li>LabVIEW</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">GenAI / LLM</div>
+        <ul class="skill-list">
+          <li>CrewAI</li><li>OpenAI API</li><li>DeepSeek</li><li>RAG</li><li>Prompt Engineering</li><li>Multi-agent Systems</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Deep Learning / ML</div>
+        <ul class="skill-list">
+          <li>ResNet50</li><li>GoogLeNet</li><li>DenseNet</li><li>scikit-learn</li><li>Classification</li><li>Regression</li><li>Clustering</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Statistics</div>
+        <ul class="skill-list">
+          <li>Hypothesis Testing</li><li>Biostatistics</li><li>Time-Series Analysis</li><li>Predictive Modeling</li><li>Feature Engineering</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Healthcare / Interop</div>
+        <ul class="skill-list">
+          <li>FHIR R4</li><li>HL7</li><li>HIE Architecture</li><li>EHR Systems</li><li>HIPAA</li><li>Clinical Decision Support</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Cloud / Tools</div>
+        <ul class="skill-list">
+          <li>AWS S3</li><li>Git</li><li>VS Code</li><li>Fusion 360</li><li>MySQL</li><li>Excel</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
+<!-- CONTACT (06) -->
+<div class="section-wrap" id="contact">
   <div class="section-header fade-in">
     <span class="section-num">06</span>
     <h2>Contact</h2>
@@ -838,8 +889,8 @@ footer p {
   <div class="contact-grid fade-in">
     <div class="contact-text">
       <h3>Let's work together.</h3>
-      <p>I'm actively seeking full-time roles in health informatics, healthcare data analytics, and clinical AI. I am available from June 22, 2026 under F-1 OPT (3-year STEM extension eligible). Open to relocation across the US.</p>
-      <a href="mailto:shreyas01karnad@outlook.com" class="btn-primary" style="display: inline-block;">Send me an email</a>
+      <p>I'm actively seeking full-time roles in health informatics, healthcare data analytics, and clinical AI. Available immediately under F-1 OPT with 3-year STEM extension eligibility. Open to relocation across the US.</p>
+      <a href="mailto:shreyas01karnad@outlook.com" class="btn-primary" style="display:inline-block;">Send me an email</a>
     </div>
     <div class="contact-links">
       <a href="mailto:shreyas01karnad@outlook.com" class="contact-link">
@@ -860,17 +911,17 @@ footer p {
       </a>
     </div>
   </div>
-</section>
+</div>
 
 <footer>
   <p>© 2026 Shreyas Karnad</p>
-  <p>Ann Arbor, MI - Available June 22, 2026</p>
+  <p>Ann Arbor, MI — Available immediately · F-1 OPT</p>
 </footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.1 });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
