@@ -605,8 +605,10 @@ footer p {
       <div class="stat-label">Agents in deployed CrewAI system</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">80%</div>
-      <div class="stat-label">Accuracy - sepsis risk classifier</div>
+      <div class="stat-num">0.82</div>
+      <div class="stat-label">AUROC — MIMIC-IV sepsis EWS, beating Epic Sepsis Model (0.47)</div>
+    </div>
+    </div>
     </div>
     <div class="stat-card">
       <div class="stat-num">1</div>
@@ -623,6 +625,22 @@ footer p {
       <h2>Projects</h2>
     </div>
     <div class="projects-grid">
+      <div class="project-card fade-in" style="border-left: 3px solid var(--accent);">
+        <div class="project-num">FLAGSHIP · CLINICAL ML · FHIR</div>
+        <div class="project-title">MIMIC-IV Pre-Treatment Sepsis Early Warning System</div>
+        <div class="project-desc">
+          Built a Random Forest classifier on 67,286 PhysioNet-credentialed MIMIC-IV v3.1 adult ICU stays, directly responding to Wiens et al. (NEJM AI, 2024), which showed the Epic Sepsis Model collapses to AUROC 0.47 before treatment initiation. Achieved AUROC 0.7766–0.8160 — a +0.31–0.35 improvement. SHAP contamination audit confirmed zero treatment markers. FHIR R4 RiskAssessment output with custom pre-treatment certification extension. Power BI DirectQuery dashboard on BigQuery with DAX. Reproducibility validated on two environments.
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
+          <span class="project-highlight">AUROC 0.78–0.82 · +0.31 vs ESM</span>
+          <a href="https://github.com/karnadsp/mimic-sepsis-ews" target="_blank"
+             style="font-family:'DM Mono',monospace; font-size:10px; color:var(--ink-muted);
+                    text-decoration:none; border:1px solid var(--rule); padding:0.2rem 0.55rem;
+                    border-radius:2px; letter-spacing:0.05em;">
+            GitHub ↗
+          </a>
+        </div>
+      </div>
       <div class="project-card fade-in">
         <div class="project-num">AI GOVERNANCE</div>
         <div class="project-title">EHR AI Hallucination Mitigation Framework</div>
@@ -873,7 +891,13 @@ footer p {
       <div class="skill-group fade-in">
         <div class="skill-group-title">Cloud / Tools</div>
         <ul class="skill-list">
-          <li>AWS S3</li><li>Git</li><li>VS Code</li><li>Fusion 360</li><li>MySQL</li><li>Excel</li>
+          <li>AWS S3</li><li>Google BigQuery</li><li>Git</li><li>VS Code</li><li>Fusion 360</li><li>MySQL</li><li>Excel</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">BI & Visualization</div>
+        <ul class="skill-list">
+          <li>Power BI Desktop</li><li>DirectQuery</li><li>DAX</li><li>SHAP</li><li>matplotlib</li><li>seaborn</li>
         </ul>
       </div>
     </div>
