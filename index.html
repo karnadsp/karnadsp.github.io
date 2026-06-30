@@ -604,19 +604,16 @@ footer p {
       <div class="stat-num">9</div>
       <div class="stat-label">Agents in deployed CrewAI system</div>
     </div>
-    <div class="stat-card">
+   <div class="stat-card">
       <div class="stat-num">0.82</div>
       <div class="stat-label">AUROC — MIMIC-IV sepsis EWS, beating Epic Sepsis Model (0.47)</div>
     </div>
-    </div>
-    </div>
     <div class="stat-card">
-      <div class="stat-num">1</div>
-      <div class="stat-label">Peer-reviewed publication, IJAAS 2023</div>
+      <div class="stat-num">546K</div>
+      <div class="stat-label">Hospitalizations analyzed in health equity dashboard</div>
     </div>
   </div>
 </section>
-
 <!-- PROJECTS (01) -->
 <div class="section-wrap-alt">
   <div class="section-wrap-alt-inner" id="projects">
@@ -647,7 +644,16 @@ footer p {
         <div class="project-desc">Investigated how LLM-generated outputs propagate as undetected errors through clinical documentation workflows. Proposed a Zero-Trust RAG framework with retrieval-based validation checkpoints and HIPAA-aligned accountability standards.</div>
         <span class="project-highlight">RAG · LLM Governance · HIPAA</span>
       </div>
-
+      <div class="project-card fade-in" style="border-left: 3px solid var(--teal);">
+        <div class="project-num">FLAGSHIP · POPULATION HEALTH · BI</div>
+        <div class="project-title">MIMIC-IV Health Equity & Disparities Dashboard</div>
+        <div class="project-desc">
+          Architected a production-realistic Power BI star schema on 546,028 MIMIC-IV hospitalizations (223,452 patients) using Import Mode with pre-aggregated BigQuery tables giving zero ongoing cloud cost. Built 21 DAX measures, diagnosed and fixed a data quality bug producing an impossible 289% KPI value, and built a 6-page, 40-visual dashboard. Surfaced a 2x+ stroke mortality gap and a 3.2x Acute MI mortality gap across race groups.
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
+          <span class="project-highlight">546K records · 21 DAX measures · 6 pages</span>
+        </div>
+      </div>
       <div class="project-card fade-in">
         <div class="project-num">POPULATION HEALTH</div>
         <div class="project-title">Structural Health Disparities & Sepsis Risk</div>
@@ -897,7 +903,7 @@ footer p {
       <div class="skill-group fade-in">
         <div class="skill-group-title">BI & Visualization</div>
         <ul class="skill-list">
-          <li>Power BI Desktop</li><li>DirectQuery</li><li>DAX</li><li>SHAP</li><li>matplotlib</li><li>seaborn</li>
+          <li>Power BI Desktop</li><li>Import Mode</li><li>DirectQuery</li><li>Star Schema</li><li>DAX</li><li>SHAP</li><li>matplotlib</li><li>seaborn</li>
         </ul>
       </div>
     </div>
