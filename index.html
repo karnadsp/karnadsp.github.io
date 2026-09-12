@@ -10,7 +10,7 @@
 :root {
   --ink: #1a1a1a;
   --ink-muted: #5a5a5a;
-  --ink-faint: #9a9a9a;
+  --ink-faint: #7a7a7a;
   --paper: #f8f6f1;
   --paper-warm: #f0ece3;
   --accent: #1d4e6b;
@@ -18,9 +18,18 @@
   --rule: #d8d4cc;
   --teal: #0f6e56;
   --teal-bg: #e1f5ee;
+  --nav-height: 52px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+[id] { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
 body {
   font-family: 'DM Sans', sans-serif;
@@ -42,7 +51,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 52px;
+  min-height: 52px;
+  flex-wrap: wrap;
 }
 
 .nav-logo {
@@ -57,6 +67,7 @@ nav {
   display: flex;
   gap: 2rem;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -74,7 +85,7 @@ nav {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  padding-top: 52px;
+  padding-top: var(--nav-height);
 }
 
 .hero-text {
@@ -161,7 +172,7 @@ h1 em {
 
 .btn-secondary:hover { background: var(--accent-light); }
 
-/* HERO RIGHT - tighter */
+/* HERO RIGHT */
 .hero-right {
   background: var(--paper-warm);
   border-left: 1px solid var(--rule);
@@ -230,7 +241,7 @@ h1 em {
 
 .section-num {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-faint);
   letter-spacing: 0.12em;
 }
@@ -242,10 +253,10 @@ h2 {
   letter-spacing: -0.01em;
 }
 
-/* PROJECTS (now first after hero) */
+/* PROJECTS */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
   gap: 1.25rem;
 }
 
@@ -264,7 +275,7 @@ h2 {
 
 .project-num {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-faint);
   letter-spacing: 0.1em;
   margin-bottom: 0.6rem;
@@ -288,7 +299,7 @@ h2 {
 
 .project-highlight {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--teal);
   background: var(--teal-bg);
   padding: 0.3rem 0.65rem;
@@ -351,7 +362,7 @@ h2 {
 
 .exp-date {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-faint);
   letter-spacing: 0.05em;
   margin-bottom: 0.4rem;
@@ -360,7 +371,7 @@ h2 {
 }
 
 .exp-org {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent);
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -393,7 +404,7 @@ h2 {
   position: absolute;
   left: 0;
   color: var(--ink-faint);
-  font-size: 11px;
+  font-size: 12px;
   top: 0.2rem;
 }
 
@@ -406,7 +417,7 @@ h2 {
 
 .tag {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   padding: 0.2rem 0.55rem;
   background: var(--accent-light);
   color: var(--accent);
@@ -425,13 +436,13 @@ h2 {
   align-items: flex-start;
 }
 
-.pub-icon { font-size: 1.75rem; opacity: 0.5; flex-shrink: 0; margin-top: 0.2rem; }
+.pub-icon { font-size: 1.75rem; opacity: 0.6; flex-shrink: 0; margin-top: 0.2rem; }
 
 .pub-journal {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.14em;
-  opacity: 0.65;
+  opacity: 0.75;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -445,12 +456,32 @@ h2 {
 
 .pub-title a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 
-.pub-meta { font-size: 13px; opacity: 0.65; line-height: 1.6; }
+.pub-meta { font-size: 13px; opacity: 0.75; line-height: 1.6; }
+
+/* RESEARCH TRAINING */
+.training-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1.5rem 2rem;
+  margin-top: 1.25rem;
+}
+.training-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.training-meta {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
 
 /* SKILLS */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.25rem;
 }
 
@@ -463,7 +494,7 @@ h2 {
 
 .skill-group-title {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--accent);
   text-transform: uppercase;
@@ -478,7 +509,7 @@ h2 {
 }
 
 .skill-list li {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--ink-muted);
   background: var(--paper-warm);
   border: 1px solid var(--rule);
@@ -554,19 +585,38 @@ footer p {
   .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
   footer { padding: 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
-  nav { padding: 0 1rem; }
+  nav { padding: 0.5rem 1rem; }
   .nav-links { gap: 1rem; }
 }
 
-/* FADE IN */
+/* FADE IN - visible by default; JS only enhances with a transition */
 .fade-in {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-.fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-enabled .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .js-enabled .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-grid > *,
+.contact-grid > *,
+.pub-card > *,
+.project-card {
+  min-width: 0;
+}
+
+.about-link,
+.contact-link,
+.pub-title {
+  overflow-wrap: anywhere;
 }
 </style>
 </head>
@@ -584,11 +634,11 @@ footer p {
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding:0; max-width:none;">
+<section class="hero">
   <div class="hero-text">
     <div class="hero-tag">MHI '26 - University of Michigan</div>
     <h1>Shreyas<br><em>Karnad</em></h1>
-    <p class="hero-desc">Health Informatics graduate who pairs deep technical work in clinical AI and population health analytics with the ability to translate it into decisions people actually act on. From 9-agent LLM systems to sepsis risk models, I make healthcare data work harder, and easier to understand.</p>
+    <p class="hero-desc">Health Informatics graduate and Biomedical Engineer with experience in biomedical research, healthcare data analysis, and computational workflows. My work includes experimental sensor analysis, clinical requirements gathering, and AI-assisted analytics.</p>
     <div class="hero-ctas">
       <a href="Shreyas_Karnad_CV.pdf" class="btn-primary" download>Download CV</a>
       <a href="#projects" class="btn-secondary">View Projects</a>
@@ -601,20 +651,20 @@ footer p {
       <div class="stat-label">GPA - Master of Health Informatics</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">9</div>
-      <div class="stat-label">Agents in deployed CrewAI system</div>
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Surgical oncologists interviewed to inform product requirements</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">0.82</div>
-      <div class="stat-label">AUROC on independent MIMIC-IV cohort, vs. published ESM pre-treatment AUROC of 0.47</div>
-</div>
+      <div class="stat-num">6</div>
+      <div class="stat-label">Dashboard pages built in an AI-assisted Power BI project</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">546K</div>
-      <div class="stat-label">Hospitalizations analyzed in health equity dashboard</div>
+      <div class="stat-label">Hospitalizations explored in an AI-assisted learning project</div>
     </div>
   </div>
 </section>
+
 <!-- PROJECTS (01) -->
 <div class="section-wrap-alt">
   <div class="section-wrap-alt-inner" id="projects">
@@ -623,82 +673,91 @@ footer p {
       <h2>Projects</h2>
     </div>
     <div class="projects-grid">
+
       <div class="project-card fade-in" style="border-left: 3px solid var(--accent);">
-        <div class="project-num">FLAGSHIP · CLINICAL ML · FHIR</div>
-        <div class="project-title">MIMIC-IV Pre-Treatment Sepsis Early Warning System</div>
+        <div class="project-num">AI-ASSISTED LEARNING PROJECT · CLINICAL ML</div>
+        <div class="project-title">MIMIC-IV Sepsis Modeling Exploration</div>
         <div class="project-desc">
-          Built a Random Forest classifier on 67,286 PhysioNet-credentialed MIMIC-IV v3.1 adult ICU stays, directly responding to Wiens et al. (NEJM AI, 2024), which showed the Epic Sepsis Model collapses to AUROC 0.47 before treatment initiation. Achieved AUROC 0.7766–0.8160 — a +0.31–0.35 improvement. SHAP contamination audit confirmed zero treatment markers. FHIR R4 RiskAssessment output with custom pre-treatment certification extension. Power BI DirectQuery dashboard on BigQuery with DAX. Reproducibility validated on two environments.
+          Pursued a sepsis-modeling exploration inspired by Michigan Medicine research, executing and examining AI-generated BigQuery SQL and Python for a cohort of 67,286 ICU stays. Re-exported the feature dataset after the notebook initially loaded only 29,405 rows, then checked that the loaded row count matched the 67,286-row BigQuery cohort. Ran Random Forest training and explored feature attribution and FHIR-formatted prediction outputs with AI assistance.
         </div>
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
-          <span class="project-highlight">AUROC 0.78–0.82 · +0.31 vs ESM</span>
+          <span class="project-highlight">67,286 ICU stays · Row-count correction</span>
           <a href="https://github.com/karnadsp/mimic-sepsis-ews" target="_blank"
-             style="font-family:'DM Mono',monospace; font-size:10px; color:var(--ink-muted);
+             style="font-family:'DM Mono',monospace; font-size:11px; color:var(--ink-muted);
                     text-decoration:none; border:1px solid var(--rule); padding:0.2rem 0.55rem;
                     border-radius:2px; letter-spacing:0.05em;">
             GitHub ↗
           </a>
         </div>
       </div>
+
       <div class="project-card fade-in" style="border-left: 3px solid var(--teal);">
-        <div class="project-num">FLAGSHIP · POPULATION HEALTH · BI</div>
+        <div class="project-num">AI-ASSISTED LEARNING PROJECT · BI</div>
         <div class="project-title">MIMIC-IV Health Equity & Disparities Dashboard</div>
         <div class="project-desc">
-          Architected a production-realistic Power BI star schema on 546,028 MIMIC-IV hospitalizations (223,452 patients) using Import Mode with pre-aggregated BigQuery tables giving zero ongoing cloud cost. Built 21 DAX measures, diagnosed and fixed a data quality bug producing an impossible 289% KPI value, and built a 6-page, 40-visual dashboard. Surfaced a 2x+ stroke mortality gap and a 3.2x Acute MI mortality gap across race groups.
+          Built a six-page Power BI report with AI guidance using BigQuery staging and aggregation queries covering 546,028 hospitalizations, examining query logic and configuring the report's data model and visuals. Investigated an incorrect 289% discharge-rate value with AI guidance, correcting visual field assignments and applying revised DAX calculations using admission counts instead of summed subgroup percentages.
         </div>
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
-          <span class="project-highlight">546K records · 21 DAX measures · 6 pages</span>
+          <span class="project-highlight">546K hospitalizations · 6 pages · Guided troubleshooting</span>
         </div>
-      </div>
-      <div class="project-card fade-in" style="border-left: 3px solid var(--accent);">
-        <div class="project-num">PROJECT MANAGEMENT · BUSINESS STRATEGY</div>
-        <div class="project-title">APP-2-MARKET Product Launch Strategy</div>
-        <div class="project-desc">
-          Led project management and business planning for a health data app's go-to-market strategy. Structured the work into a 6-phase, 30+ task Work Breakdown Structure spanning competitive strategy, maintenance, distribution/compliance, data security, testing, and financial planning. Built a full project budget across labor, materials, and fixed costs ($92,000 projected vs. $93,150 actual, a 1.25% variance), and defended sequencing trade-offs, prioritizing compliance ahead of broader rollout, live to stakeholders.
-        </div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
-          <span class="project-highlight">6-phase WBS · $93K budget · Live defense</span>
-        </div>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">AI GOVERNANCE</div>
-        <div class="project-title">EHR AI Hallucination Mitigation Framework</div>
-        <div class="project-desc">Investigated how LLM-generated outputs propagate as undetected errors through clinical documentation workflows. Proposed a Zero-Trust RAG framework with retrieval-based validation checkpoints and HIPAA-aligned accountability standards.</div>
-        <span class="project-highlight">RAG · LLM Governance · HIPAA</span>
-      </div>
-      <div class="project-card fade-in">
-        <div class="project-num">POPULATION HEALTH</div>
-        <div class="project-title">Structural Health Disparities & Sepsis Risk</div>
-        <div class="project-desc">Analyzed a large California county-level administrative healthcare dataset. Built a Random Forest classifier (80% accuracy) and multivariate regression identifying insurance coverage and not worker shortages as the primary structural predictor of postoperative sepsis outcomes.</div>
-        <span class="project-highlight">Random Forest · SDOH · 80% accuracy</span>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-num">CLINICAL ML</div>
+        <div class="project-num">ACADEMIC SIMULATION · BUSINESS STRATEGY</div>
+        <div class="project-title">APP-2-MARKET Product Launch Strategy</div>
+        <div class="project-desc">Led project planning for a simulated health data app's go-to-market strategy for a hypothetical company (Tradarbol Tech), structuring the work into a 6-phase, 30+ task Work Breakdown Structure. Built a scenario project budget ($92,000 projected vs. $93,150 simulated actual costs) and defended sequencing trade-offs to classmates under live Q&A.</div>
+        <span class="project-highlight">Academic simulation · 6-phase WBS</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">RESEARCH PROPOSAL</div>
+        <div class="project-title">EHR AI Hallucination Mitigation Framework</div>
+        <div class="project-desc">Identified that AI-generated hallucinations in EHR transcription tools can create undetected clinical documentation errors, and proposed a Zero-Trust RAG framework with retrieval-based validation checkpoints intended to reduce reliance on unverified LLM outputs.</div>
+        <span class="project-highlight">Research proposal · RAG concept</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">TEAM PROJECT · UX DESIGN</div>
+        <div class="project-title">Ctrl Alt Drink - Alcohol Moderation App Concept</div>
+        <div class="project-desc">Contributed to a 3-person team project designing a conceptual mobile app for student alcohol moderation, based on published research on unhealthy alcohol use. Wrote the intended users, user needs, and technological platform sections of the team paper, and designed Figma wireframes for a clinician-contact feature flow.</div>
+        <span class="project-highlight">Figma wireframes · Needs analysis</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">TEAM PROJECT · POPULATION HEALTH</div>
+        <div class="project-title">Structural Health Disparities & Sepsis Risk</div>
+        <div class="project-desc">Contributed the Random Forest classification component (80% accuracy) and feature-importance visualizations to a team study of county-level sepsis outcomes in California, and helped integrate the findings into the academic report.</div>
+        <span class="project-highlight">Random Forest · 80% accuracy</span>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">TEAM PROJECT · CLINICAL ML</div>
         <div class="project-title">Diabetes Risk Assessment App + FHIR Output</div>
-        <div class="project-desc">Built an end-to-end ML pipeline for diabetes risk prediction in Python. Generated structured FHIR R4-formatted outputs enabling interoperable data sharing across health systems, demonstrating real-world clinical decision support applicability.</div>
-        <span class="project-highlight">FHIR R4 · scikit-learn · Python</span>
+        <div class="project-desc">Contributed to a team-developed diabetes risk application that included an ML pipeline and FHIR-formatted outputs to explore clinical decision support and interoperability concepts.</div>
+        <span class="project-highlight">FHIR R4 · Team project</span>
       </div>
 
       <div class="project-card fade-in">
         <div class="project-num">STATISTICAL ANALYSIS</div>
-        <div class="project-title">Diabetes Risk - 768-Patient Clinical Dataset</div>
-        <div class="project-desc">Applied hypothesis testing (two-sample t-tests, p &lt; 2.2e-16) and multivariate linear regression in R to the Pima Indians diabetes dataset. Surfaced zero-value missingness as a systematic data quality issue affecting model reliability.</div>
-        <span class="project-highlight">R · Hypothesis Testing · p &lt; 2.2e-16</span>
+        <div class="project-title">Diabetes Dataset Analysis</div>
+        <div class="project-desc">Analyzed 768 records in R using two-sample t-tests and multiple linear regression of glucose and insulin levels, flagging zero-valued clinical measurements as potential missing data.</div>
+        <span class="project-highlight">R · t-tests · multiple linear regression</span>
       </div>
 
       <div class="project-card fade-in">
         <div class="project-num">NETWORK ANALYSIS</div>
         <div class="project-title">Breast Cancer Tumor Network Analysis</div>
-        <div class="project-desc">Compared K-Means and Spectral Clustering on the Wisconsin Diagnostic breast cancer dataset (32 features, 569 patients). Network centrality analysis identified concave_points_mean as the most diagnostically influential tumor feature.</div>
+        <div class="project-desc">Compared K-Means and Spectral Clustering on a 569-record breast-tumor diagnostic dataset in Python, using three network-centrality measures to examine relationships among tumor features.</div>
         <span class="project-highlight">Spectral Clustering · Network Centrality</span>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-num">CLINICAL ML</div>
+        <div class="project-num">CLINICAL ML · M.TECH MINI PROJECT</div>
         <div class="project-title">IVF Success Prediction - Metabolite Classification</div>
-        <div class="project-desc">Applied Logistic Regression, KNN, and Naïve Bayes to a clinical IVF dataset (55 patients, 14 biological metabolites). KNN achieved 83% accuracy on optimized metabolite combinations. M.Tech capstone, Manipal Institute of Technology.</div>
-        <span class="project-highlight">KNN · 83% accuracy · 14 metabolites</span>
+        <div class="project-desc">Compared Logistic Regression, KNN, and Naïve Bayes classifiers in Python using approximately 55 patient records with 14 metabolite measurements. The best reported KNN combination classified 10 of 12 evaluation cases correctly (83%), with limited sample size identified as a constraint. M.Tech mini project, Manipal Institute of Technology.</div>
+        <span class="project-highlight">KNN · 10/12 cases · 14 metabolites</span>
       </div>
+
     </div>
   </div>
 </div>
@@ -711,12 +770,12 @@ footer p {
   </div>
   <div class="about-grid fade-in">
     <div class="about-text">
-      <p>I'm a <strong>Health Informatics graduate of the University of Michigan</strong> (MHI, Machine Learning & Data Analytics, GPA 3.936) and a Biomedical Engineer by training. My work sits at the intersection of clinical AI, healthcare data systems, and translational population health analytics, and I care as much about communicating what the data means as I do about building the model itself.</p>
-      <p>I'm currently an <strong>Administrative Intern at Northwell Health Equity Partners</strong>, where I've designed a persistent database for the firm's AI research agent, tracking portfolio, pipeline, and watchlist companies, sourced news updates, and investment-criteria classifiers. I presented the technical trade-offs in business terms to secure approval from VP-level leadership and the engineering lead, and I've since shipped production code changes to the agent through a full branch, test, and review workflow.</p>
-      <p>In a health informatics management course, I led project planning and budgeting for a health data app's go-to-market strategy, building a full work breakdown structure and a $93K project budget, and defending my sequencing decisions live under stakeholder questioning. That experience, translating technical requirements into a business case people could act on, is a thread that runs through most of my work.</p>
-      <p>At the Biocomplexity Institute at Indiana University, I designed and deployed a <strong>9-agent CrewAI pipeline</strong> for automated biomedical data processing, one of the more technically complex agentic AI systems I've built, involving custom Python wrappers, LLM inference cost optimization, and zero-shot failure mode documentation.</p>
-      <p>Before Michigan, I spent two years at <strong>Siamaf Healthcare</strong> building deep learning models for intraoperative surgical oncology applications and conducting primary research with 20+ surgical oncologists. That clinical grounding shapes how I approach data problems: I understand what the data represents before I analyze it, and how to explain it to the people who need to act on it.</p>
-      <p>I'm authorized to work in the US under <strong>F-1 OPT beginning June 22, 2026</strong>, with a 3-year window under STEM OPT extension eligibility. Open to relocation across the US.</p>
+      <p>I'm a <strong>Health Informatics graduate of the University of Michigan</strong> (MHI, Machine Learning & Data Analytics, GPA 3.936) and a Biomedical Engineer by training. My work sits at the intersection of biomedical research, healthcare data analysis, and computational workflows, and I care as much about communicating what the data means as I do about building the analysis itself.</p>
+      <p>I'm currently an <strong>Administrative Intern at Northwell Health Equity Partners</strong>, where I proposed an AI-assisted SQLite schema for the team's company-tracking research tool; leadership and the engineering lead approved the design direction. I separately shipped a tested roster update through a reviewed GitHub pull request, and filtered a 12,000+ entry contact database to 305 qualified prospects using investor class, outreach history, and SQL queries to verify firms.</p>
+      <p>In a health informatics management course, I led project planning for a simulated health data app's go-to-market strategy, building a full work breakdown structure and a scenario project budget, and defending my sequencing decisions to classmates under live Q&A. Translating technical requirements into a plan other people can act on is a thread that runs through most of my work.</p>
+      <p>At the Biocomplexity Institute at Indiana University, I contributed to a workflow translating natural-language biological research descriptions into structured parameters and CompuCell3D simulation code, with guidance from IU researchers. I personally evaluated the generated outputs using AI-recommended tests and rating criteria, documented recurring failure modes, and helped adapt the underlying nine-agent CrewAI workflow to a different model provider.</p>
+      <p>Before Michigan, I spent two years at <strong>Siamaf Healthcare</strong>, evaluating deep learning classification models for intraoperative surgical oncology applications, testing an early-stage AWS-hosted remote-processing prototype, and conducting primary research with 20+ surgical oncologists. That clinical grounding shapes how I approach data problems: I try to understand what the data represents before I analyze it, and how to explain it to the people who need to act on it.</p>
+      <p>I'm seeking full-time opportunities in health informatics, healthcare data analysis, and research support. Open to relocation across the US.</p>
     </div>
     <div class="about-links">
       <a href="mailto:shreyas01karnad@outlook.com" class="about-link">
@@ -755,14 +814,13 @@ footer p {
       <div>
         <div class="exp-role">Administrative Intern</div>
         <ul class="exp-bullets">
-          <li>Filtered a partner/investor contact database from 12,000+ entries to 305 qualified prospects and translated the findings into a clear recommendation deck; both the methodology and the business takeaways were approved by leadership.</li>
-          <li>Built a company tracker for prospective investment targets, integrating financial data (valuation, funding stage, capital raised) with an AI-driven news monitoring system that flags material company developments in plain, actionable terms for the investment team; called "exactly what I wanted" by supervisor.</li>
-          <li>Built a structured deal pipeline tracking system, extracting and organizing key deal attributes (sourcing, therapeutic categorization, stage, priority, and follow-up status) from confidential source materials using AI-assisted data extraction.</li>
-          <li>Independently designed a persistent database architecture for the firm's AI research agent and presented the technical trade-offs in business terms to VP-level leadership and the engineering lead, securing approval and integration into the firm's production system.</li>
-          <li>Shipped a production code change via GitHub pull request updating the agent's tracked-company roster, following a full branch/test/review workflow under the team's contributor access model.</li>
+          <li>Filtered a partner/investor contact database from 12,000+ entries to 305 qualified prospects using investor class and outreach history, with SQL queries to verify firms; leadership approved the methodology.</li>
+          <li>Built an Excel company tracker and used an internal AI tool to assess news impact and extract structured deal-pipeline fields from source documents.</li>
+          <li>Proposed an AI-assisted SQLite schema for company tracking, including companies, aliases, and membership history; leadership and the engineering lead approved the design direction.</li>
+          <li>Shipped a tested roster update through a reviewed GitHub pull request, following a branch/test/review workflow under the team's contributor access model.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">SQLite</span><span class="tag">Database Schema Design</span><span class="tag">Git / PR Workflow</span><span class="tag">Stakeholder Communication</span><span class="tag">Deal Pipeline Analytics</span>
+          <span class="tag">SQLite</span><span class="tag">Database Schema Design</span><span class="tag">Git / PR Workflow</span><span class="tag">SQL</span>
         </div>
       </div>
     </div>
@@ -775,11 +833,11 @@ footer p {
       <div>
         <div class="exp-role">Grader, Public Health Informatics</div>
         <ul class="exp-bullets">
-          <li>Evaluated 98+ graduate-level assignments per cycle using structured rubrics for HMP669: Data Management and Visualization in Healthcare, maintaining consistent scoring standards across the semester.</li>
-          <li>Collaborated with Prof. Rahul Ladhania on rubric design, dispute resolution, and quality assurance; identified and corrected systematic grading inconsistencies before grade release.</li>
+          <li>Evaluated 98+ graduate-level assignments per cycle using structured rubrics, maintaining consistent scoring standards and providing detailed written feedback on analytical approach and data interpretation.</li>
+          <li>Collaborated with Prof. Rahul Ladhania on rubric design and quality assurance across multiple assignment cycles; identified and corrected systematic grading inconsistencies before grade release.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">Public Health Informatics</span><span class="tag">Data Interpretation</span><span class="tag">Statistical Analysis</span>
+          <span class="tag">Public Health Informatics</span><span class="tag">Data Interpretation</span>
         </div>
       </div>
     </div>
@@ -790,13 +848,13 @@ footer p {
         <div class="exp-org">University of Michigan<br>School of Information</div>
       </div>
       <div>
-        <div class="exp-role">Instructional Aid, Health Informatics & Database Management</div>
+        <div class="exp-role">Instructional Aid, SI 544 (Introduction to Statistics and Data Analysis)</div>
         <ul class="exp-bullets">
-          <li>Supported SI544 (Introduction to Statistics and Data Analysis) for 150+ students with varying programming backgrounds, evaluating statistical methods, data visualization, and database concepts.</li>
-          <li>Collaborated with Prof. Bobby Madamanchi on exam design and grading across 3 exam cycles; identified and corrected systematic inconsistencies before grade release.</li>
+          <li>Supported a 150+ student statistics course by grading analytical examinations, proctoring assessments, and communicating technical concepts clearly to students with varying programming backgrounds.</li>
+          <li>Collaborated with Prof. Bobby Madamanchi on exam design and quality assurance across 3 exam cycles; identified and corrected systematic grading inconsistencies before grade release.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">Health Informatics</span><span class="tag">Database Management</span><span class="tag">Statistical Methods</span>
+          <span class="tag">Statistics</span><span class="tag">Data Analysis Instruction</span>
         </div>
       </div>
     </div>
@@ -809,12 +867,12 @@ footer p {
       <div>
         <div class="exp-role">Data Science Intern</div>
         <ul class="exp-bullets">
-          <li>Designed schema-based JSON pipelines to automatically generate syntactically valid CompuCell3D biological simulation code from research paper abstracts; documented zero-shot LLM failure modes to guide iterative pipeline refinement.</li>
-          <li>Re-engineered a 9-agent CrewAI system to replace OpenAI with DeepSeek Replicate via a custom Python wrapper, resolving API environment conflicts and reducing inference costs while maintaining code generation accuracy.</li>
-          <li>Translated natural-language biological modeling questions into structured computational parameters via an NL → ontology → code framework, enabling non-programmer researchers to generate simulation-ready outputs.</li>
+          <li>Contributed to a workflow translating natural-language biological research descriptions into structured parameters and CompuCell3D simulation code, with guidance from Indiana University researchers.</li>
+          <li>Evaluated generated outputs using AI-recommended tests and rating criteria; documented version mismatches, hallucinated API calls, and incorrect biological parameters to support refinement.</li>
+          <li>Helped adapt a nine-agent CrewAI workflow to DeepSeek through Replicate and a custom Python wrapper, resolving integration and environment conflicts.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">CrewAI</span><span class="tag">DeepSeek</span><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Ontology Extraction</span><span class="tag">LLM Pipelines</span>
+          <span class="tag">CrewAI</span><span class="tag">DeepSeek</span><span class="tag">Python</span><span class="tag">Output Evaluation</span>
         </div>
       </div>
     </div>
@@ -827,12 +885,12 @@ footer p {
       <div>
         <div class="exp-role">Associate Biomedical Engineer</div>
         <ul class="exp-bullets">
-          <li>Evaluated deep learning classification models (ResNet50, GoogLeNet, DenseNet) in MATLAB Deep Learning Toolbox to classify harmonic signature data from intraoperative sentinel lymph node detection; achieved 96–100% accuracy and communicated results to clinical stakeholders in plain, decision-relevant terms.</li>
-          <li>Deployed ML inference pipelines to AWS S3-connected cloud servers, enabling remote clinics without high-end NPU hardware to offload classification tasks and receive results in real time.</li>
-          <li>Designed a ruggedized field enclosure in Fusion 360 housing a Surface Pro with NPU and battery pack; implemented a locked-down Windows 11 environment producing a deployment-ready clinical device prototype.</li>
+          <li>Evaluated deep learning classification models (ResNet50, GoogLeNet, DenseNet) on magnetic-probe signal data for sentinel lymph node detection research, and wrote up comparison results for clinical stakeholders in plain terms.</li>
+          <li>Tested an early-stage remote-processing prototype using EC2-hosted MATLAB classification code and S3 storage, using basic geometric inputs to check functionality; the intended application was to offload computation from hospital computers.</li>
+          <li>Integrated MATLAB software with LabVIEW-based hardware interfaces to route sensor data from the magnetic field probe into the classification pipeline.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">ResNet50</span><span class="tag">GoogLeNet</span><span class="tag">DenseNet</span><span class="tag">MATLAB DL Toolbox</span><span class="tag">AWS S3</span><span class="tag">LabVIEW</span>
+          <span class="tag">ResNet50</span><span class="tag">GoogLeNet</span><span class="tag">DenseNet</span><span class="tag">MATLAB</span><span class="tag">AWS EC2/S3</span><span class="tag">LabVIEW</span>
         </div>
       </div>
     </div>
@@ -845,11 +903,11 @@ footer p {
       <div>
         <div class="exp-role">Graduate Research Intern</div>
         <ul class="exp-bullets">
-          <li>Interviewed 20+ surgical oncologists to translate their clinical workflow needs into formal product requirements, bridging the gap between clinical end users and the technical development roadmap.</li>
-          <li>Built and validated a magnetic probe prototype for intraoperative sentinel lymph node detection; analyzed experimental sensor data using time-series methods and contributed findings to M.Tech thesis.</li>
+          <li>Interviewed 20+ surgical oncologists to translate clinical workflow needs into formal technical requirements for the engineering team.</li>
+          <li>Built and tested a magnetic probe prototype for intraoperative sentinel lymph node detection; analyzed experimental sensor data using time-series methods and contributed findings to my M.Tech thesis and internal technical reports.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">Clinical Research</span><span class="tag">Requirements Analysis</span><span class="tag">Time-Series Analysis</span>
+          <span class="tag">Clinical Requirements Gathering</span><span class="tag">Time-Series Analysis</span>
         </div>
       </div>
     </div>
@@ -862,30 +920,34 @@ footer p {
       <div>
         <div class="exp-role">Project Intern</div>
         <ul class="exp-bullets">
-          <li>Analyzed $12B+ in digital health investments across 50+ companies and translated the findings into clear sector rankings and a plain-language recommendation memo used directly by leadership for strategic decisions.</li>
-          <li>Mapped FDA and IMDRF SaMD regulatory frameworks, producing a risk classification reference guide used to inform product development planning.</li>
+          <li>Analyzed investment data across 50+ digital health companies totaling over $12B and prepared sector rankings and a recommendation memo used for leadership planning discussions.</li>
+          <li>Reviewed FDA guidance and IMDRF frameworks for Software as a Medical Device (SaMD), preparing a reference guide for product development planning.</li>
         </ul>
         <div class="exp-tags">
-          <span class="tag">SaMD Regulation</span><span class="tag">Strategic Analysis</span><span class="tag">Healthcare Market</span>
+          <span class="tag">SaMD Regulation</span><span class="tag">Market Analysis</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PUBLICATION (04) -->
+<!-- PUBLICATION & TRAINING (04) -->
 <div class="section-wrap">
   <div class="section-header fade-in">
     <span class="section-num">04</span>
-    <h2>Publication</h2>
+    <h2>Publication & Research Training</h2>
   </div>
   <div class="pub-card fade-in">
     <div class="pub-icon">📄</div>
     <div>
-      <div class="pub-journal">International Journal of Advanced and Applied Sciences - December 2023</div>
-      <div class="pub-title"><a href="https://www.science-gate.com/IJAAS/2023/V10I12/1021833ijaas202312004.html" target="_blank">Current Trends of AI and Applications in Digital Pathology: A Comprehensive Review</a></div>
-      <div class="pub-meta">Peer-reviewed publication covering ML and deep learning methods for biological tissue analysis, AI-assisted diagnostics, and computational pathology.</div>
+      <div class="pub-journal">International Journal of Advanced and Applied Sciences, 10(12), 29-41 - December 2023</div>
+      <div class="pub-title"><a href="https://doi.org/10.21833/ijaas.2023.12.004" target="_blank">Current trends of artificial intelligence and applications in digital pathology: A comprehensive review</a></div>
+      <div class="pub-meta">Co-author. Peer-reviewed review covering ML and deep learning methods for biological tissue analysis, AI-assisted diagnostics, and computational pathology.</div>
     </div>
+  </div>
+  <div class="training-card fade-in">
+    <div class="training-title">CITI Program - Human Research: Data or Specimens Only Research</div>
+    <div class="training-meta">Completed Basic Course, June 2026 (expires June 2029), covering research ethics, IRB regulations, records-based research, and HIPAA privacy protections.</div>
   </div>
 </div>
 
@@ -898,57 +960,51 @@ footer p {
     </div>
     <div class="skills-grid">
       <div class="skill-group fade-in">
-        <div class="skill-group-title">Business & Communication</div>
-        <ul class="skill-list">
-          <li>Stakeholder Translation</li><li>Executive Reporting</li><li>Project Budgeting</li><li>Work Breakdown Structures</li><li>Risk Assessment</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Programming</div>
+        <div class="skill-group-title">Applied Programming</div>
         <ul class="skill-list">
           <li>Python</li><li>R</li><li>SQL</li><li>MATLAB</li><li>LabVIEW</li>
         </ul>
       </div>
       <div class="skill-group fade-in">
-        <div class="skill-group-title">GenAI / LLM</div>
+        <div class="skill-group-title">Statistical / ML Methods</div>
         <ul class="skill-list">
-          <li>CrewAI</li><li>OpenAI API</li><li>DeepSeek</li><li>RAG</li><li>Prompt Engineering</li><li>Multi-agent Systems</li>
+          <li>Hypothesis Testing</li><li>Regression</li><li>Classification</li><li>Time-Series Analysis</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">GenAI / LLM (Project Exposure)</div>
+        <ul class="skill-list">
+          <li>CrewAI</li><li>OpenAI API</li><li>DeepSeek</li><li>Prompt Engineering</li><li>Multi-agent Systems</li>
         </ul>
       </div>
       <div class="skill-group fade-in">
         <div class="skill-group-title">Deep Learning / ML</div>
         <ul class="skill-list">
-          <li>ResNet50</li><li>GoogLeNet</li><li>DenseNet</li><li>scikit-learn</li><li>Classification</li><li>Regression</li><li>Clustering</li>
+          <li>ResNet50</li><li>GoogLeNet</li><li>DenseNet</li><li>scikit-learn</li><li>Clustering</li>
         </ul>
       </div>
       <div class="skill-group fade-in">
-        <div class="skill-group-title">Statistics</div>
+        <div class="skill-group-title">Healthcare / Research Training</div>
         <ul class="skill-list">
-          <li>Hypothesis Testing</li><li>Biostatistics</li><li>Time-Series Analysis</li><li>Predictive Modeling</li><li>Feature Engineering</li>
+          <li>FHIR R4 (project exposure)</li><li>HL7 (coursework)</li><li>HIE (coursework)</li><li>CITI Human Research Training</li>
         </ul>
       </div>
       <div class="skill-group fade-in">
-        <div class="skill-group-title">Healthcare / Interop</div>
+        <div class="skill-group-title">Databases / Tools</div>
         <ul class="skill-list">
-          <li>FHIR R4</li><li>HL7</li><li>HIE Architecture</li><li>EHR Systems</li><li>HIPAA</li><li>Clinical Decision Support</li>
+          <li>Microsoft Access</li><li>SQLite</li><li>MySQL</li><li>Google BigQuery (project exposure)</li><li>Git / GitHub</li><li>Excel</li>
         </ul>
       </div>
       <div class="skill-group fade-in">
-        <div class="skill-group-title">Cloud / Tools</div>
+        <div class="skill-group-title">Cloud & Development Tools</div>
         <ul class="skill-list">
-          <li>AWS S3</li><li>Google BigQuery</li><li>Git</li><li>VS Code</li><li>Fusion 360</li><li>MySQL</li><li>Excel</li>
+          <li>AWS EC2 / S3 (prototype testing)</li><li>VS Code</li><li>Fusion 360</li>
         </ul>
       </div>
       <div class="skill-group fade-in">
-        <div class="skill-group-title">BI & Visualization</div>
+        <div class="skill-group-title">BI & Visualization (Learning Projects)</div>
         <ul class="skill-list">
-          <li>Power BI Desktop</li><li>Import Mode</li><li>DirectQuery</li><li>Star Schema</li><li>DAX</li><li>SHAP</li><li>matplotlib</li><li>seaborn</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Database / DevOps</div>
-        <ul class="skill-list">
-          <li>SQLite</li><li>Schema Design</li><li>Git PR Workflow</li><li>Production Integration</li>
+          <li>Power BI Desktop</li><li>DAX</li><li>Star Schema</li><li>matplotlib</li><li>seaborn</li>
         </ul>
       </div>
     </div>
@@ -964,7 +1020,7 @@ footer p {
   <div class="contact-grid fade-in">
     <div class="contact-text">
       <h3>Let's work together.</h3>
-      <p>I'm actively seeking full-time roles in health informatics, healthcare data analytics, and clinical AI. Available immediately under F-1 OPT with 3-year STEM extension eligibility. Open to relocation across the US.</p>
+      <p>I'm seeking full-time opportunities in health informatics, healthcare data analysis, and research support. Open to relocation across the US.</p>
       <a href="mailto:shreyas01karnad@outlook.com" class="btn-primary" style="display:inline-block;">Send me an email</a>
     </div>
     <div class="contact-links">
@@ -990,14 +1046,50 @@ footer p {
 
 <footer>
   <p>© 2026 Shreyas Karnad</p>
-  <p>Ann Arbor, MI - Available immediately · F-1 OPT</p>
+  <p>Ann Arbor, MI · Open to relocation</p>
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const root = document.documentElement;
+const elements = document.querySelectorAll('.fade-in');
+
+if (
+  'IntersectionObserver' in window &&
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+) {
+  try {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    elements.forEach((element) => observer.observe(element));
+    root.classList.add('js-enabled');
+  } catch {
+    root.classList.remove('js-enabled');
+  }
+}
+</script>
+<script>
+const navigation = document.querySelector('nav');
+
+function updateNavigationHeight() {
+  document.documentElement.style.setProperty(
+    '--nav-height',
+    `${navigation.getBoundingClientRect().height}px`
+  );
+}
+
+updateNavigationHeight();
+window.addEventListener('resize', updateNavigationHeight);
+
+if ('ResizeObserver' in window) {
+  new ResizeObserver(updateNavigationHeight).observe(navigation);
+}
 </script>
 </body>
 </html>
