@@ -1,1095 +1,1377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shreyas Karnad - Health Informatics & AI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --ink: #1a1a1a;
-  --ink-muted: #5a5a5a;
-  --ink-faint: #7a7a7a;
-  --paper: #f8f6f1;
-  --paper-warm: #f0ece3;
-  --accent: #1d4e6b;
-  --accent-light: #e8f2f8;
-  --rule: #d8d4cc;
-  --teal: #0f6e56;
-  --teal-bg: #e1f5ee;
-  --nav-height: 52px;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-
-[id] { scroll-margin-top: calc(var(--nav-height) + 20px); }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: rgba(248,246,241,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--rule);
-  z-index: 100;
-  padding: 0 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 52px;
-  flex-wrap: wrap;
-}
-
-.nav-logo {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  font-size: 13px;
-  color: var(--ink-muted);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--accent); }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  padding-top: var(--nav-height);
-}
-
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5rem 4rem 5rem 5rem;
-}
-
-.hero-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.hero-tag::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--accent);
-}
-
-h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-  line-height: 1.05;
-  color: var(--ink);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-}
-
-h1 em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.hero-desc {
-  font-size: 1rem;
-  color: var(--ink-muted);
-  max-width: 46ch;
-  margin-bottom: 2.5rem;
-  line-height: 1.85;
-}
-
-.hero-ctas {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  padding: 0.7rem 1.6rem;
-  border-radius: 2px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  transition: background 0.2s;
-}
-
-.btn-primary:hover { background: #163d54; }
-
-.btn-secondary {
-  background: transparent;
-  color: var(--accent);
-  padding: 0.7rem 1.6rem;
-  border-radius: 2px;
-  border: 1px solid var(--accent);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  transition: all 0.2s;
-}
-
-.btn-secondary:hover { background: var(--accent-light); }
-
-/* HERO RIGHT */
-.hero-right {
-  background: var(--paper-warm);
-  border-left: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 3rem 3rem 3rem 3.5rem;
-  gap: 1.5rem;
-}
-
-.hero-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--rule);
-  margin-bottom: 0.5rem;
-}
-
-.stat-card {
-  border-left: 2px solid var(--accent);
-  padding-left: 1rem;
-}
-
-.stat-num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 2rem;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 0.2rem;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: var(--ink-muted);
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-}
-
-/* SECTION WRAPPER */
-.section-wrap {
-  padding: 5.5rem 5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-wrap-alt {
-  background: var(--paper-warm);
-}
-
-.section-wrap-alt-inner {
-  padding: 5.5rem 5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1.25rem;
-  margin-bottom: 3rem;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 0.875rem;
-}
-
-.section-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--ink-faint);
-  letter-spacing: 0.12em;
-}
-
-h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.85rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-
-/* PROJECTS */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
-  gap: 1.25rem;
-}
-
-.project-card {
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 1.5rem 1.75rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.project-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(29,78,107,0.06);
-}
-
-.project-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--ink-faint);
-  letter-spacing: 0.1em;
-  margin-bottom: 0.6rem;
-}
-
-.project-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.1rem;
-  color: var(--ink);
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.project-desc {
-  font-size: 13px;
-  color: var(--ink-muted);
-  line-height: 1.75;
-  margin-bottom: 1rem;
-}
-
-.project-highlight {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--teal);
-  background: var(--teal-bg);
-  padding: 0.3rem 0.65rem;
-  border-radius: 2px;
-  display: inline-block;
-  letter-spacing: 0.03em;
-}
-
-/* ABOUT */
-.about-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.about-text p {
-  color: var(--ink-muted);
-  margin-bottom: 1.1rem;
-  font-size: 1rem;
-  line-height: 1.85;
-}
-
-.about-text p strong { color: var(--ink); font-weight: 500; }
-
-.about-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.about-link {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-decoration: none;
-  color: var(--ink-muted);
-  font-size: 13px;
-  padding: 0.65rem 0.9rem;
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  transition: all 0.2s;
-}
-
-.about-link:hover { color: var(--accent); border-color: var(--accent); }
-.about-link svg { width: 15px; height: 15px; flex-shrink: 0; }
-
-/* EXPERIENCE */
-.exp-item {
-  display: grid;
-  grid-template-columns: 170px 1fr;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-.exp-date {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--ink-faint);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
-  line-height: 1.6;
-  padding-top: 0.25rem;
-}
-
-.exp-org {
-  font-size: 12px;
-  color: var(--accent);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-.exp-role {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.2rem;
-  color: var(--ink);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.01em;
-}
-
-.exp-bullets {
-  list-style: none;
-  margin-bottom: 0.75rem;
-}
-
-.exp-bullets li {
-  font-size: 13.5px;
-  color: var(--ink-muted);
-  line-height: 1.7;
-  padding-left: 1.1rem;
-  position: relative;
-  margin-bottom: 0.35rem;
-}
-
-.exp-bullets li::before {
-  content: '-';
-  position: absolute;
-  left: 0;
-  color: var(--ink-faint);
-  font-size: 12px;
-  top: 0.2rem;
-}
-
-.exp-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 0.75rem;
-}
-
-.tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  padding: 0.2rem 0.55rem;
-  background: var(--accent-light);
-  color: var(--accent);
-  border-radius: 2px;
-  letter-spacing: 0.05em;
-}
-
-/* PUBLICATION */
-.pub-card {
-  background: var(--accent);
-  color: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 2px;
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.pub-icon { font-size: 1.75rem; opacity: 0.6; flex-shrink: 0; margin-top: 0.2rem; }
-
-.pub-journal {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  opacity: 0.75;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.pub-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.15rem;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-}
-
-.pub-title a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-
-.pub-meta { font-size: 13px; opacity: 0.75; line-height: 1.6; }
-
-/* RESEARCH TRAINING */
-.training-card {
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 1.5rem 2rem;
-  margin-top: 1.25rem;
-}
-.training-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.05rem;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-}
-.training-meta {
-  font-size: 12.5px;
-  color: var(--ink-muted);
-  line-height: 1.6;
-}
-
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 1.25rem;
-}
-
-.skill-group {
-  padding: 1.25rem 1.5rem;
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-}
-
-.skill-group-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 0.875rem;
-}
-
-.skill-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.skill-list li {
-  font-size: 12.5px;
-  color: var(--ink-muted);
-  background: var(--paper-warm);
-  border: 1px solid var(--rule);
-  padding: 0.15rem 0.5rem;
-  border-radius: 2px;
-}
-
-/* CONTACT */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.contact-text h3 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.65rem;
-  color: var(--ink);
-  margin-bottom: 0.65rem;
-  letter-spacing: -0.01em;
-}
-
-.contact-text p {
-  color: var(--ink-muted);
-  margin-bottom: 1.5rem;
-  font-size: 0.93rem;
-  line-height: 1.8;
-}
-
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-decoration: none;
-  color: var(--ink-muted);
-  font-size: 13.5px;
-  transition: color 0.2s;
-}
-
-.contact-link:hover { color: var(--accent); }
-.contact-link svg { width: 15px; height: 15px; flex-shrink: 0; }
-
-/* FOOTER */
-footer {
-  border-top: 1px solid var(--rule);
-  padding: 1.75rem 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer p {
-  font-size: 11px;
-  color: var(--ink-faint);
-  font-family: 'DM Mono', monospace;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-text { padding: 3rem 1.5rem; }
-  .section-wrap { padding: 3.5rem 1.5rem; }
-  .section-wrap-alt-inner { padding: 3.5rem 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
-  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-  footer { padding: 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
-  nav { padding: 0.5rem 1rem; }
-  .nav-links { gap: 1rem; }
-}
-
-/* FADE IN - visible by default; JS only enhances with a transition */
-.fade-in {
-  opacity: 1;
-  transform: none;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .js-enabled .fade-in {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
-  .js-enabled .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.about-grid > *,
-.contact-grid > *,
-.pub-card > *,
-.project-card {
-  min-width: 0;
-}
-
-.about-link,
-.contact-link,
-.pub-title {
-  overflow-wrap: anywhere;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shreyas Karnad, University of Michigan health informatics graduate with experience in database development, healthcare data analysis, and biomedical research.">
+  <title>Shreyas Karnad - Health Informatics &amp; Data Analysis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --ink-muted: #5a5a5a;
+      --ink-faint: #686868;
+      --paper: #f8f6f1;
+      --paper-warm: #f0ece3;
+      --accent: #1d4e6b;
+      --accent-light: #e8f2f8;
+      --rule: #d8d4cc;
+      --teal: #0f6e56;
+      --teal-bg: #e1f5ee;
+      --nav-height: 52px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    [id] {
+      scroll-margin-top: calc(var(--nav-height) + 20px);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* KEYBOARD NAVIGATION */
+
+    .skip-link {
+      position: fixed;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 200;
+      padding: 0.65rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 2px;
+      transform: translateY(-200%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .pub-card a:focus-visible {
+      outline-color: #fff;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(248, 246, 241, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.5rem;
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      text-decoration: none;
+      max-width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      padding-top: var(--nav-height);
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+      min-width: 0;
+    }
+
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      max-width: 46ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      padding: 0.7rem 1.6rem;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #163d54;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-light);
+    }
+
+    /* HERO RIGHT */
+
+    .hero-right {
+      background: var(--paper-warm);
+      border-left: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 3rem 3rem 3rem 3.5rem;
+      gap: 1.5rem;
+      min-width: 0;
+    }
+
+    .hero-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--rule);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--ink-muted);
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+
+    .section-wrap,
+    .section-wrap-alt-inner {
+      padding: 5.5rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-wrap-alt {
+      background: var(--paper-warm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.875rem;
+    }
+
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.12em;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.85rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    /* EXPERIENCE */
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      line-height: 1.6;
+      padding-top: 0.25rem;
+    }
+
+    .exp-org {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-bullets li::before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      color: var(--ink-faint);
+      font-size: 12px;
+      top: 0.2rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 0.2rem 0.55rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 1.5rem 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(29, 78, 107, 0.06);
+    }
+
+    .project-card-accent {
+      border-left: 3px solid var(--accent);
+    }
+
+    .project-card-teal {
+      border-left: 3px solid var(--teal);
+    }
+
+    .project-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .project-highlight {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--teal);
+      background: var(--teal-bg);
+      padding: 0.3rem 0.65rem;
+      border-radius: 2px;
+      display: inline-block;
+      letter-spacing: 0.03em;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+
+    .project-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--ink-muted);
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .about-text p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .about-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--ink-muted);
+      font-size: 13px;
+      padding: 0.65rem 0.9rem;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .about-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .about-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    /* PUBLICATION */
+
+    .pub-card {
+      background: var(--accent);
+      color: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 2px;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .pub-icon {
+      font-size: 1.75rem;
+      opacity: 0.6;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .pub-journal {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      opacity: 0.75;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-title a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .pub-meta {
+      font-size: 13px;
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+
+    /* RESEARCH TRAINING */
+
+    .training-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 1.5rem 2rem;
+      margin-top: 1.25rem;
+    }
+
+    .training-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .training-meta {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-group {
+      padding: 1.25rem 1.5rem;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+    }
+
+    .skill-group-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.875rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .skill-list li {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .contact-text h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-text p {
+      color: var(--ink-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.93rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--ink-muted);
+      font-size: 13.5px;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    .contact-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.75rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--ink-faint);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* WRAPPING */
+
+    .about-grid > *,
+    .contact-grid > *,
+    .exp-item > *,
+    .pub-card > *,
+    .project-card,
+    .skill-group {
+      min-width: 0;
+    }
+
+    .about-link,
+    .contact-link,
+    .pub-title {
+      overflow-wrap: anywhere;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .hero-text {
+        padding: 3rem 1.5rem;
+      }
+
+      .section-wrap,
+      .section-wrap-alt-inner {
+        padding: 3.5rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pub-card {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.5rem;
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+      }
+
+      nav {
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+    }
+
+    /* CONTENT IS VISIBLE BY DEFAULT */
+
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .js-enabled .fade-in {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+
+      .js-enabled .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">SK - Health Informatics & AI</a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <a href="#top" class="nav-logo">SK - Health Informatics &amp; Data Analysis</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-tag">MHI '26 - University of Michigan</div>
-    <h1>Shreyas<br><em>Karnad</em></h1>
-    <p class="hero-desc">Health Informatics graduate and Biomedical Engineer with experience in biomedical research, healthcare data analysis, and computational workflows. My work includes experimental sensor analysis, clinical requirements gathering, and AI-assisted analytics.</p>
-    <div class="hero-ctas">
-      <a href="Shreyas_Karnad_CV.pdf" class="btn-primary" download>Download CV</a>
-      <a href="#projects" class="btn-secondary">View Projects</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="photo.jpg" alt="Shreyas Karnad" class="hero-photo">
-    <div class="stat-card">
-      <div class="stat-num">3.936</div>
-      <div class="stat-label">GPA - Master of Health Informatics</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">20+</div>
-      <div class="stat-label">Surgical oncologists interviewed to inform product requirements</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">6</div>
-      <div class="stat-label">Dashboard pages built in an AI-assisted Power BI project</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">546K</div>
-      <div class="stat-label">Hospitalizations explored in an AI-assisted learning project</div>
-    </div>
-  </div>
-</section>
+  <main id="main-content" tabindex="-1">
 
-<!-- PROJECTS (01) -->
-<div class="section-wrap-alt">
-  <div class="section-wrap-alt-inner" id="projects">
-    <div class="section-header fade-in">
-      <span class="section-num">01</span>
-      <h2>Projects</h2>
-    </div>
-    <div class="projects-grid">
-
-      <div class="project-card fade-in" style="border-left: 3px solid var(--accent);">
-        <div class="project-num">AI-ASSISTED LEARNING PROJECT · CLINICAL ML</div>
-        <div class="project-title">MIMIC-IV Sepsis Modeling Exploration</div>
-        <div class="project-desc">
-          Pursued a sepsis-modeling exploration inspired by Michigan Medicine research, executing and examining AI-generated BigQuery SQL and Python for a cohort of 67,286 ICU stays. Re-exported the feature dataset after the notebook initially loaded only 29,405 rows, then checked that the loaded row count matched the 67,286-row BigQuery cohort. Ran Random Forest training and explored feature attribution and FHIR-formatted prediction outputs with AI assistance.
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="hero-text">
+        <div class="hero-tag">MHI '26 - University of Michigan</div>
+        <h1 id="hero-heading">Shreyas<br><em>Karnad</em></h1>
+        <p class="hero-desc">Health Informatics graduate and biomedical engineer with experience in database development, healthcare data analysis, and biomedical research. My work includes SQL-based data verification, clinical requirements gathering, and AI-assisted computational workflows.</p>
+        <div class="hero-ctas">
+          <a href="Shreyas_Karnad_CV.pdf" class="btn-primary" download>Download CV</a>
+          <a href="#experience" class="btn-secondary">View Experience</a>
         </div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
-          <span class="project-highlight">67,286 ICU stays · Row-count correction</span>
-          <a href="https://github.com/karnadsp/mimic-sepsis-ews" target="_blank"
-             style="font-family:'DM Mono',monospace; font-size:11px; color:var(--ink-muted);
-                    text-decoration:none; border:1px solid var(--rule); padding:0.2rem 0.55rem;
-                    border-radius:2px; letter-spacing:0.05em;">
-            GitHub ↗
+      </div>
+
+      <div class="hero-right">
+        <img src="photo.jpg" alt="Shreyas Karnad" class="hero-photo" width="120" height="120">
+
+        <div class="stat-card">
+          <div class="stat-num">3.936</div>
+          <div class="stat-label">GPA - Master of Health Informatics</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Surgical oncologists interviewed to inform product requirements</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">457</div>
+          <div class="stat-label">Automated tests passing in the production release containing my database changes</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-num">546K</div>
+          <div class="stat-label">Hospitalizations explored in an AI-assisted learning project</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE (01) -->
+    <section class="section-wrap-alt" id="experience" aria-labelledby="experience-heading">
+      <div class="section-wrap-alt-inner">
+        <div class="section-header fade-in">
+          <span class="section-num" aria-hidden="true">01</span>
+          <h2 id="experience-heading">Experience</h2>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">JUL 2026 - SEP 2026</div>
+            <div class="exp-org">Northwell Health<br>Equity Partners</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Administrative Intern</h3>
+            <ul class="exp-bullets">
+              <li>Designed and implemented, with AI assistance, a SQLite database extension for NHEP's investment research agent, adding company records, aliases, and an append-only history of list and status changes; changes underwent engineering review and were included in a production release that passed 457 automated tests.</li>
+              <li>Implemented name-and-alias matching to connect news items with tracked companies, using whole-word rules to reduce false matches and leaving ambiguous matches unassigned; verified the released functionality through live scheduled briefs and production queries.</li>
+              <li>Added four query tools for company directories, individual company records, membership history, and unmatched news, accessible through the team's existing chat interface.</li>
+              <li>Filtered a 12,000+ entry contact database to 305 qualified prospects against supplied investor criteria, cross-referencing outreach history and investor type, with SQL queries to verify firms; leadership approved the methodology and used the shortlist directly.</li>
+              <li>Built Excel dashboards tracking deal stage, sourcing, and follow-up status for opportunities in the investment team's pipeline.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">SQLite</span>
+              <span class="tag">Database Schema Design</span>
+              <span class="tag">Git / PR Workflow</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Production Deployment</span>
+              <span class="tag">Excel Dashboards</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">JAN 2026 - MAY 2026</div>
+            <div class="exp-org">University of Michigan<br>School of Public Health</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Grader, Public Health Informatics</h3>
+            <ul class="exp-bullets">
+              <li>Evaluated 98+ graduate-level assignments per cycle using structured rubrics, maintaining consistent scoring standards and providing detailed written feedback on analytical approach and data interpretation.</li>
+              <li>Collaborated with Prof. Rahul Ladhania on rubric design and quality assurance across multiple assignment cycles; identified and corrected systematic grading inconsistencies before grade release.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">Public Health Informatics</span>
+              <span class="tag">Data Interpretation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">SEP 2025 - DEC 2025</div>
+            <div class="exp-org">University of Michigan<br>School of Information</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Instructional Aid, Health Informatics / Database Management</h3>
+            <ul class="exp-bullets">
+              <li>Supported a 150+ student course by grading analytical examinations, proctoring assessments, and communicating technical concepts clearly to students with varying programming backgrounds.</li>
+              <li>Collaborated with Prof. Bobby Madamanchi on exam design and quality assurance across 3 exam cycles; identified and corrected systematic grading inconsistencies before grade release.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">Health Informatics</span>
+              <span class="tag">Database Management</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">JUN 2025 - AUG 2025</div>
+            <div class="exp-org">Biocomplexity Institute<br>Indiana University</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Data Science Intern</h3>
+            <ul class="exp-bullets">
+              <li>Contributed to a workflow translating natural-language biological research descriptions into structured parameters and CompuCell3D simulation code, with guidance from Indiana University researchers.</li>
+              <li>Evaluated generated outputs using AI-recommended tests and rating criteria; documented version mismatches, hallucinated API calls, and incorrect biological parameters to support refinement.</li>
+              <li>Helped adapt a nine-agent CrewAI workflow to DeepSeek through Replicate and a custom Python wrapper, resolving integration and environment conflicts.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">CrewAI</span>
+              <span class="tag">DeepSeek</span>
+              <span class="tag">Python</span>
+              <span class="tag">Output Evaluation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">AUG 2023 - AUG 2024</div>
+            <div class="exp-org">Siamaf Healthcare<br>Bengaluru, India</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Associate Biomedical Engineer</h3>
+            <ul class="exp-bullets">
+              <li>Evaluated deep learning classification models (ResNet50, GoogLeNet, DenseNet) on magnetic-probe signal data for sentinel lymph node detection research, and wrote up comparison results for clinical stakeholders in plain terms.</li>
+              <li>Tested an early-stage remote-processing prototype using EC2-hosted MATLAB classification code and S3 storage, using basic geometric inputs to check functionality; the intended application was to offload computation from hospital computers.</li>
+              <li>Integrated MATLAB software with LabVIEW-based hardware interfaces to route sensor data from the magnetic field probe into the classification pipeline.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">ResNet50</span>
+              <span class="tag">GoogLeNet</span>
+              <span class="tag">DenseNet</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">AWS EC2/S3</span>
+              <span class="tag">LabVIEW</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">AUG 2022 - JUL 2023</div>
+            <div class="exp-org">Siamaf Healthcare<br>Bengaluru, India</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Graduate Research Intern</h3>
+            <ul class="exp-bullets">
+              <li>Interviewed 20+ surgical oncologists to translate clinical workflow needs into formal technical requirements for the engineering team.</li>
+              <li>Built and tested a magnetic probe prototype for intraoperative sentinel lymph node detection; analyzed experimental sensor data using time-series methods and contributed findings to my M.Tech thesis and internal technical reports.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">Clinical Requirements Gathering</span>
+              <span class="tag">Time-Series Analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div>
+            <div class="exp-date">JAN 2021 - JUN 2021</div>
+            <div class="exp-org">TATA Elxsi<br>St. Paul, MN (Remote)</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Project Intern</h3>
+            <ul class="exp-bullets">
+              <li>Analyzed investment data across 50+ digital health companies totaling over $12B and prepared sector rankings and a recommendation memo used for leadership planning discussions.</li>
+              <li>Reviewed FDA guidance and IMDRF frameworks for Software as a Medical Device (SaMD), preparing a reference guide for product development planning.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">SaMD Regulation</span>
+              <span class="tag">Market Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (02) -->
+    <section class="section-wrap" id="projects" aria-labelledby="projects-heading">
+      <div class="section-header fade-in">
+        <span class="section-num" aria-hidden="true">02</span>
+        <h2 id="projects-heading">Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card project-card-accent fade-in">
+          <div class="project-num">AI-ASSISTED LEARNING PROJECT · CLINICAL ML</div>
+          <h3 class="project-title">MIMIC-IV Sepsis Modeling Exploration</h3>
+          <p class="project-desc">Executed and examined AI-generated BigQuery SQL and Python for a sepsis-modeling exploration involving 67,286 ICU stays. Identified an incomplete feature export, re-exported the dataset, and verified that the reloaded data matched the source BigQuery cohort's row count. Ran Random Forest training and explored feature attribution and FHIR-formatted prediction outputs using AI-generated code.</p>
+          <div class="project-actions">
+            <span class="project-highlight">67,286 ICU stays · Row-count correction</span>
+            <a href="https://github.com/karnadsp/mimic-sepsis-ews" target="_blank" rel="noopener" class="project-link" aria-label="View the MIMIC-IV sepsis project on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card project-card-teal fade-in">
+          <div class="project-num">AI-ASSISTED LEARNING PROJECT · BI</div>
+          <h3 class="project-title">MIMIC-IV Health Equity &amp; Disparities Dashboard</h3>
+          <p class="project-desc">Built a six-page Power BI report with AI guidance using BigQuery staging and aggregation queries covering 546,028 hospitalizations, examining query logic and configuring the report's data model and visuals. Investigated an incorrect 289% discharge-rate value with AI guidance, correcting visual field assignments and applying revised DAX calculations using admission counts instead of summed subgroup percentages.</p>
+          <div class="project-actions">
+            <span class="project-highlight">546K hospitalizations · 6 pages · Guided troubleshooting</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">RESEARCH PROPOSAL</div>
+          <h3 class="project-title">EHR AI Hallucination Mitigation Framework</h3>
+          <p class="project-desc">Proposed a retrieval-augmented generation framework with validation checkpoints to address errors in AI-generated EHR documentation. Developed as an academic research proposal.</p>
+          <span class="project-highlight">Research proposal · RAG concept</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">TEAM PROJECT · UX DESIGN</div>
+          <h3 class="project-title">Ctrl Alt Drink - Alcohol Moderation App Concept</h3>
+          <p class="project-desc">Contributed to a 3-person team project designing a conceptual mobile app for student alcohol moderation, based on published research on unhealthy alcohol use. Wrote the intended users, user needs, and technological platform sections of the team paper, and designed Figma wireframes for a clinician-contact feature flow.</p>
+          <span class="project-highlight">Figma wireframes · Needs analysis</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">TEAM PROJECT · POPULATION HEALTH</div>
+          <h3 class="project-title">Structural Health Disparities &amp; Sepsis Risk</h3>
+          <p class="project-desc">Contributed Random Forest classification and feature-importance visualizations to a team study of postoperative sepsis in California counties. The model classified county-year observations according to whether their sepsis rates fell in the highest quartile. Helped integrate findings into the academic report.</p>
+          <span class="project-highlight">Random Forest · County-level analysis</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">NETWORK ANALYSIS</div>
+          <h3 class="project-title">Breast Cancer Tumor Network Analysis</h3>
+          <p class="project-desc">Compared K-Means and Spectral Clustering on a 569-record breast-tumor diagnostic dataset in Python, using three network-centrality measures to examine relationships among tumor features.</p>
+          <span class="project-highlight">Spectral Clustering · Network Centrality</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">ACADEMIC SIMULATION · BUSINESS STRATEGY</div>
+          <h3 class="project-title">APP-2-MARKET Product Launch Strategy</h3>
+          <p class="project-desc">Led project planning for a simulated health data app's go-to-market strategy for a hypothetical company (Tradarbol Tech), structuring the work into a 6-phase, 30+ task Work Breakdown Structure. Built a scenario project budget ($92,000 projected vs. $93,150 simulated actual costs) and defended sequencing trade-offs to classmates under live Q&amp;A.</p>
+          <span class="project-highlight">Academic simulation · 6-phase WBS</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">STATISTICAL ANALYSIS</div>
+          <h3 class="project-title">Diabetes Dataset Analysis</h3>
+          <p class="project-desc">Analyzed 768 records in R using two-sample t-tests and multiple linear regression of glucose and insulin levels, flagging zero-valued clinical measurements as potential missing data.</p>
+          <span class="project-highlight">R · t-tests · multiple linear regression</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">TEAM PROJECT · CLINICAL ML</div>
+          <h3 class="project-title">Diabetes Risk Assessment App + FHIR Output</h3>
+          <p class="project-desc">Contributed to a team-developed diabetes risk application that included an ML pipeline and FHIR-formatted outputs to explore clinical decision support and interoperability concepts.</p>
+          <span class="project-highlight">FHIR R4 · Team project</span>
+        </article>
+
+        <article class="project-card fade-in">
+          <div class="project-num">CLINICAL ML · M.TECH MINI PROJECT</div>
+          <h3 class="project-title">IVF Success Prediction - Metabolite Classification</h3>
+          <p class="project-desc">Compared Logistic Regression, KNN, and Naïve Bayes classifiers in Python using approximately 55 patient records with 14 metabolite measurements. The best reported KNN combination classified 10 of 12 evaluation cases correctly (83%), with limited sample size identified as a constraint. M.Tech mini project, Manipal Institute of Technology.</p>
+          <span class="project-highlight">KNN · 10/12 cases · 14 metabolites</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ABOUT (03) -->
+    <section class="section-wrap-alt" id="about" aria-labelledby="about-heading">
+      <div class="section-wrap-alt-inner">
+        <div class="section-header fade-in">
+          <span class="section-num" aria-hidden="true">03</span>
+          <h2 id="about-heading">About</h2>
+        </div>
+
+        <div class="about-grid fade-in">
+          <div class="about-text">
+            <p>I'm a <strong>University of Michigan graduate with a Master of Health Informatics</strong> (GPA 3.936) and a background in biomedical engineering. My experience includes database development, healthcare data analysis, experimental sensor research, and gathering requirements from clinicians.</p>
+            <p>I recently completed an <strong>Administrative Internship at Northwell Health Equity Partners</strong>. With AI assistance, I extended the team's existing SQLite database to support company tracking, aliases, and status history. The changes underwent engineering review and were deployed to production. I also filtered a database of more than 12,000 contacts to 305 qualified prospects and built Excel dashboards for the investment team's pipeline.</p>
+            <p>At Indiana University's Biocomplexity Institute, I helped adapt a computational research workflow and evaluated generated simulation outputs. Earlier, at Siamaf Healthcare, I worked on magnetic-probe research and interviewed more than 20 surgical oncologists about their clinical workflows. I'm seeking full-time opportunities in health informatics, healthcare data analysis, and research support, and am open to relocation across the US.</p>
+          </div>
+
+          <div class="about-links">
+            <a href="mailto:shreyas01karnad@outlook.com" class="about-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              shreyas01karnad@outlook.com
+            </a>
+
+            <a href="https://linkedin.com/in/shreyas-karnad" target="_blank" rel="noopener" class="about-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              linkedin.com/in/shreyas-karnad
+            </a>
+
+            <a href="https://github.com/karnadsp" target="_blank" rel="noopener" class="about-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+              </svg>
+              github.com/karnadsp
+            </a>
+
+            <a href="Shreyas_Karnad_CV.pdf" class="about-link" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              Download full CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATION AND TRAINING (04) -->
+    <section class="section-wrap" id="publication" aria-labelledby="publication-heading">
+      <div class="section-header fade-in">
+        <span class="section-num" aria-hidden="true">04</span>
+        <h2 id="publication-heading">Publication &amp; Research Training</h2>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-icon" aria-hidden="true">📄</div>
+        <div>
+          <div class="pub-journal">International Journal of Advanced and Applied Sciences, 10(12), 29–41 - December 2023</div>
+          <h3 class="pub-title">
+            <a href="https://doi.org/10.21833/ijaas.2023.12.004" target="_blank" rel="noopener">Current trends of artificial intelligence and applications in digital pathology: A comprehensive review</a>
+          </h3>
+          <p class="pub-meta">Co-author of a peer-reviewed review article on machine learning and deep learning in digital pathology.</p>
+        </div>
+      </div>
+
+      <div class="training-card fade-in">
+        <h3 class="training-title">CITI Program - Human Research: Data or Specimens Only Research</h3>
+        <p class="training-meta">Completed Basic Course, June 2026 (expires June 2029), covering research ethics, IRB regulations, records-based research, and HIPAA privacy protections.</p>
+      </div>
+    </section>
+
+    <!-- SKILLS (05) -->
+    <section class="section-wrap-alt" id="skills" aria-labelledby="skills-heading">
+      <div class="section-wrap-alt-inner">
+        <div class="section-header fade-in">
+          <span class="section-num" aria-hidden="true">05</span>
+          <h2 id="skills-heading">Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">Applied Programming</h3>
+            <ul class="skill-list">
+              <li>Python</li>
+              <li>R</li>
+              <li>SQL</li>
+              <li>MATLAB</li>
+              <li>LabVIEW</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">Statistical / ML Methods</h3>
+            <ul class="skill-list">
+              <li>Hypothesis Testing</li>
+              <li>Regression</li>
+              <li>Classification</li>
+              <li>Time-Series Analysis</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">AI Workflow Tools (Project Exposure)</h3>
+            <ul class="skill-list">
+              <li>CrewAI</li>
+              <li>OpenAI API</li>
+              <li>DeepSeek</li>
+              <li>Multi-agent Systems</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">Deep Learning / ML</h3>
+            <ul class="skill-list">
+              <li>ResNet50</li>
+              <li>GoogLeNet</li>
+              <li>DenseNet</li>
+              <li>scikit-learn</li>
+              <li>Clustering</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">Healthcare / Research Training</h3>
+            <ul class="skill-list">
+              <li>FHIR R4 (project exposure)</li>
+              <li>HL7 (coursework)</li>
+              <li>HIE (coursework)</li>
+              <li>CITI Human Research Training</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">Databases / Tools</h3>
+            <ul class="skill-list">
+              <li>Microsoft Access</li>
+              <li>SQLite</li>
+              <li>MySQL</li>
+              <li>Google BigQuery (project exposure)</li>
+              <li>Git / GitHub</li>
+              <li>Excel</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">Cloud &amp; Development Tools</h3>
+            <ul class="skill-list">
+              <li>AWS EC2 / S3 (prototype testing)</li>
+              <li>VS Code</li>
+              <li>Fusion 360</li>
+            </ul>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group-title">BI &amp; Visualization (Learning Projects)</h3>
+            <ul class="skill-list">
+              <li>Power BI Desktop</li>
+              <li>DAX</li>
+              <li>Star Schema</li>
+              <li>matplotlib</li>
+              <li>seaborn</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (06) -->
+    <section class="section-wrap" id="contact" aria-labelledby="contact-heading">
+      <div class="section-header fade-in">
+        <span class="section-num" aria-hidden="true">06</span>
+        <h2 id="contact-heading">Contact</h2>
+      </div>
+
+      <div class="contact-grid fade-in">
+        <div class="contact-text">
+          <h3>Let's work together.</h3>
+          <p>I'm seeking full-time opportunities in health informatics, healthcare data analysis, and research support. Open to relocation across the US.</p>
+          <a href="mailto:shreyas01karnad@outlook.com" class="btn-primary">Send me an email</a>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:shreyas01karnad@outlook.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            shreyas01karnad@outlook.com
+          </a>
+
+          <a href="tel:+17347097325" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .94h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            +1 (734) 709-7325
+          </a>
+
+          <a href="https://linkedin.com/in/shreyas-karnad" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            linkedin.com/in/shreyas-karnad
+          </a>
+
+          <a href="https://github.com/karnadsp" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+            </svg>
+            github.com/karnadsp
           </a>
         </div>
       </div>
+    </section>
 
-      <div class="project-card fade-in" style="border-left: 3px solid var(--teal);">
-        <div class="project-num">AI-ASSISTED LEARNING PROJECT · BI</div>
-        <div class="project-title">MIMIC-IV Health Equity & Disparities Dashboard</div>
-        <div class="project-desc">
-          Built a six-page Power BI report with AI guidance using BigQuery staging and aggregation queries covering 546,028 hospitalizations, examining query logic and configuring the report's data model and visuals. Investigated an incorrect 289% discharge-rate value with AI guidance, correcting visual field assignments and applying revised DAX calculations using admission counts instead of summed subgroup percentages.
-        </div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.75rem;">
-          <span class="project-highlight">546K hospitalizations · 6 pages · Guided troubleshooting</span>
-        </div>
-      </div>
+  </main>
 
-      <div class="project-card fade-in">
-        <div class="project-num">ACADEMIC SIMULATION · BUSINESS STRATEGY</div>
-        <div class="project-title">APP-2-MARKET Product Launch Strategy</div>
-        <div class="project-desc">Led project planning for a simulated health data app's go-to-market strategy for a hypothetical company (Tradarbol Tech), structuring the work into a 6-phase, 30+ task Work Breakdown Structure. Built a scenario project budget ($92,000 projected vs. $93,150 simulated actual costs) and defended sequencing trade-offs to classmates under live Q&A.</div>
-        <span class="project-highlight">Academic simulation · 6-phase WBS</span>
-      </div>
+  <footer>
+    <p>© 2026 Shreyas Karnad</p>
+    <p>Ann Arbor, MI · Open to relocation</p>
+  </footer>
 
-      <div class="project-card fade-in">
-        <div class="project-num">RESEARCH PROPOSAL</div>
-        <div class="project-title">EHR AI Hallucination Mitigation Framework</div>
-        <div class="project-desc">Identified that AI-generated hallucinations in EHR transcription tools can create undetected clinical documentation errors, and proposed a Zero-Trust RAG framework with retrieval-based validation checkpoints intended to reduce reliance on unverified LLM outputs.</div>
-        <span class="project-highlight">Research proposal · RAG concept</span>
-      </div>
+  <script>
+    const root = document.documentElement;
+    const elements = document.querySelectorAll('.fade-in');
 
-      <div class="project-card fade-in">
-        <div class="project-num">TEAM PROJECT · UX DESIGN</div>
-        <div class="project-title">Ctrl Alt Drink - Alcohol Moderation App Concept</div>
-        <div class="project-desc">Contributed to a 3-person team project designing a conceptual mobile app for student alcohol moderation, based on published research on unhealthy alcohol use. Wrote the intended users, user needs, and technological platform sections of the team paper, and designed Figma wireframes for a clinician-contact feature flow.</div>
-        <span class="project-highlight">Figma wireframes · Needs analysis</span>
-      </div>
+    if (
+      'IntersectionObserver' in window &&
+      window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+    ) {
+      try {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
 
-      <div class="project-card fade-in">
-        <div class="project-num">TEAM PROJECT · POPULATION HEALTH</div>
-        <div class="project-title">Structural Health Disparities & Sepsis Risk</div>
-        <div class="project-desc">Contributed the Random Forest classification component (80% accuracy) and feature-importance visualizations to a team study of county-level sepsis outcomes in California, and helped integrate the findings into the academic report.</div>
-        <span class="project-highlight">Random Forest · 80% accuracy</span>
-      </div>
+        elements.forEach((element) => observer.observe(element));
+        root.classList.add('js-enabled');
+      } catch {
+        root.classList.remove('js-enabled');
+      }
+    }
+  </script>
 
-      <div class="project-card fade-in">
-        <div class="project-num">TEAM PROJECT · CLINICAL ML</div>
-        <div class="project-title">Diabetes Risk Assessment App + FHIR Output</div>
-        <div class="project-desc">Contributed to a team-developed diabetes risk application that included an ML pipeline and FHIR-formatted outputs to explore clinical decision support and interoperability concepts.</div>
-        <span class="project-highlight">FHIR R4 · Team project</span>
-      </div>
+  <script>
+    const navigation = document.querySelector('nav');
 
-      <div class="project-card fade-in">
-        <div class="project-num">STATISTICAL ANALYSIS</div>
-        <div class="project-title">Diabetes Dataset Analysis</div>
-        <div class="project-desc">Analyzed 768 records in R using two-sample t-tests and multiple linear regression of glucose and insulin levels, flagging zero-valued clinical measurements as potential missing data.</div>
-        <span class="project-highlight">R · t-tests · multiple linear regression</span>
-      </div>
+    function updateNavigationHeight() {
+      if (!navigation) return;
 
-      <div class="project-card fade-in">
-        <div class="project-num">NETWORK ANALYSIS</div>
-        <div class="project-title">Breast Cancer Tumor Network Analysis</div>
-        <div class="project-desc">Compared K-Means and Spectral Clustering on a 569-record breast-tumor diagnostic dataset in Python, using three network-centrality measures to examine relationships among tumor features.</div>
-        <span class="project-highlight">Spectral Clustering · Network Centrality</span>
-      </div>
+      document.documentElement.style.setProperty(
+        '--nav-height',
+        `${navigation.getBoundingClientRect().height}px`
+      );
+    }
 
-      <div class="project-card fade-in">
-        <div class="project-num">CLINICAL ML · M.TECH MINI PROJECT</div>
-        <div class="project-title">IVF Success Prediction - Metabolite Classification</div>
-        <div class="project-desc">Compared Logistic Regression, KNN, and Naïve Bayes classifiers in Python using approximately 55 patient records with 14 metabolite measurements. The best reported KNN combination classified 10 of 12 evaluation cases correctly (83%), with limited sample size identified as a constraint. M.Tech mini project, Manipal Institute of Technology.</div>
-        <span class="project-highlight">KNN · 10/12 cases · 14 metabolites</span>
-      </div>
+    updateNavigationHeight();
+    window.addEventListener('resize', updateNavigationHeight);
 
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT (02) -->
-<div class="section-wrap" id="about">
-  <div class="section-header fade-in">
-    <span class="section-num">02</span>
-    <h2>About</h2>
-  </div>
-  <div class="about-grid fade-in">
-    <div class="about-text">
-      <p>I'm a <strong>Health Informatics graduate of the University of Michigan</strong> (MHI, Machine Learning & Data Analytics, GPA 3.936) and a Biomedical Engineer by training. My work sits at the intersection of biomedical research, healthcare data analysis, and computational workflows, and I care as much about communicating what the data means as I do about building the analysis itself.</p>
-      <p>I'm currently an <strong>Administrative Intern at Northwell Health Equity Partners</strong>, where I proposed an AI-assisted SQLite schema for the team's company-tracking research tool; leadership and the engineering lead approved the design direction. I separately shipped a tested roster update through a reviewed GitHub pull request, and filtered a 12,000+ entry contact database to 305 qualified prospects using investor class, outreach history, and SQL queries to verify firms.</p>
-      <p>In a health informatics management course, I led project planning for a simulated health data app's go-to-market strategy, building a full work breakdown structure and a scenario project budget, and defending my sequencing decisions to classmates under live Q&A. Translating technical requirements into a plan other people can act on is a thread that runs through most of my work.</p>
-      <p>At the Biocomplexity Institute at Indiana University, I contributed to a workflow translating natural-language biological research descriptions into structured parameters and CompuCell3D simulation code, with guidance from IU researchers. I personally evaluated the generated outputs using AI-recommended tests and rating criteria, documented recurring failure modes, and helped adapt the underlying nine-agent CrewAI workflow to a different model provider.</p>
-      <p>Before Michigan, I spent two years at <strong>Siamaf Healthcare</strong>, evaluating deep learning classification models for intraoperative surgical oncology applications, testing an early-stage AWS-hosted remote-processing prototype, and conducting primary research with 20+ surgical oncologists. That clinical grounding shapes how I approach data problems: I try to understand what the data represents before I analyze it, and how to explain it to the people who need to act on it.</p>
-      <p>I'm seeking full-time opportunities in health informatics, healthcare data analysis, and research support. Open to relocation across the US.</p>
-    </div>
-    <div class="about-links">
-      <a href="mailto:shreyas01karnad@outlook.com" class="about-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        shreyas01karnad@outlook.com
-      </a>
-      <a href="https://linkedin.com/in/shreyas-karnad" target="_blank" class="about-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        linkedin.com/in/shreyas-karnad
-      </a>
-      <a href="https://github.com/karnadsp" target="_blank" class="about-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-        github.com/karnadsp
-      </a>
-      <a href="Shreyas_Karnad_CV.pdf" class="about-link" download>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download full CV
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- EXPERIENCE (03) -->
-<div class="section-wrap-alt" id="experience">
-  <div class="section-wrap-alt-inner">
-    <div class="section-header fade-in">
-      <span class="section-num">03</span>
-      <h2>Experience</h2>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">JUL 2026 - PRESENT</div>
-        <div class="exp-org">Northwell Health<br>Equity Partners</div>
-      </div>
-      <div>
-        <div class="exp-role">Administrative Intern</div>
-        <ul class="exp-bullets">
-          <li>Filtered a partner/investor contact database from 12,000+ entries to 305 qualified prospects using investor class and outreach history, with SQL queries to verify firms; leadership approved the methodology.</li>
-          <li>Built an Excel company tracker and used an internal AI tool to assess news impact and extract structured deal-pipeline fields from source documents.</li>
-          <li>Proposed an AI-assisted SQLite schema for company tracking, including companies, aliases, and membership history; leadership and the engineering lead approved the design direction.</li>
-          <li>Shipped a tested roster update through a reviewed GitHub pull request, following a branch/test/review workflow under the team's contributor access model.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">SQLite</span><span class="tag">Database Schema Design</span><span class="tag">Git / PR Workflow</span><span class="tag">SQL</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">JAN 2026 - MAY 2026</div>
-        <div class="exp-org">University of Michigan<br>School of Public Health</div>
-      </div>
-      <div>
-        <div class="exp-role">Grader, Public Health Informatics</div>
-        <ul class="exp-bullets">
-          <li>Evaluated 98+ graduate-level assignments per cycle using structured rubrics, maintaining consistent scoring standards and providing detailed written feedback on analytical approach and data interpretation.</li>
-          <li>Collaborated with Prof. Rahul Ladhania on rubric design and quality assurance across multiple assignment cycles; identified and corrected systematic grading inconsistencies before grade release.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">Public Health Informatics</span><span class="tag">Data Interpretation</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">SEP 2025 - DEC 2025</div>
-        <div class="exp-org">University of Michigan<br>School of Information</div>
-      </div>
-      <div>
-        <div class="exp-role">Instructional Aid, SI 544 (Introduction to Statistics and Data Analysis)</div>
-        <ul class="exp-bullets">
-          <li>Supported a 150+ student statistics course by grading analytical examinations, proctoring assessments, and communicating technical concepts clearly to students with varying programming backgrounds.</li>
-          <li>Collaborated with Prof. Bobby Madamanchi on exam design and quality assurance across 3 exam cycles; identified and corrected systematic grading inconsistencies before grade release.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">Statistics</span><span class="tag">Data Analysis Instruction</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">JUN 2025 - AUG 2025</div>
-        <div class="exp-org">Biocomplexity Institute<br>Indiana University</div>
-      </div>
-      <div>
-        <div class="exp-role">Data Science Intern</div>
-        <ul class="exp-bullets">
-          <li>Contributed to a workflow translating natural-language biological research descriptions into structured parameters and CompuCell3D simulation code, with guidance from Indiana University researchers.</li>
-          <li>Evaluated generated outputs using AI-recommended tests and rating criteria; documented version mismatches, hallucinated API calls, and incorrect biological parameters to support refinement.</li>
-          <li>Helped adapt a nine-agent CrewAI workflow to DeepSeek through Replicate and a custom Python wrapper, resolving integration and environment conflicts.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">CrewAI</span><span class="tag">DeepSeek</span><span class="tag">Python</span><span class="tag">Output Evaluation</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">AUG 2023 - AUG 2024</div>
-        <div class="exp-org">Siamaf Healthcare<br>Bengaluru, India</div>
-      </div>
-      <div>
-        <div class="exp-role">Associate Biomedical Engineer</div>
-        <ul class="exp-bullets">
-          <li>Evaluated deep learning classification models (ResNet50, GoogLeNet, DenseNet) on magnetic-probe signal data for sentinel lymph node detection research, and wrote up comparison results for clinical stakeholders in plain terms.</li>
-          <li>Tested an early-stage remote-processing prototype using EC2-hosted MATLAB classification code and S3 storage, using basic geometric inputs to check functionality; the intended application was to offload computation from hospital computers.</li>
-          <li>Integrated MATLAB software with LabVIEW-based hardware interfaces to route sensor data from the magnetic field probe into the classification pipeline.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">ResNet50</span><span class="tag">GoogLeNet</span><span class="tag">DenseNet</span><span class="tag">MATLAB</span><span class="tag">AWS EC2/S3</span><span class="tag">LabVIEW</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">AUG 2022 - JUL 2023</div>
-        <div class="exp-org">Siamaf Healthcare<br>Bengaluru, India</div>
-      </div>
-      <div>
-        <div class="exp-role">Graduate Research Intern</div>
-        <ul class="exp-bullets">
-          <li>Interviewed 20+ surgical oncologists to translate clinical workflow needs into formal technical requirements for the engineering team.</li>
-          <li>Built and tested a magnetic probe prototype for intraoperative sentinel lymph node detection; analyzed experimental sensor data using time-series methods and contributed findings to my M.Tech thesis and internal technical reports.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">Clinical Requirements Gathering</span><span class="tag">Time-Series Analysis</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-item fade-in">
-      <div>
-        <div class="exp-date">JAN 2021 - JUN 2021</div>
-        <div class="exp-org">TATA Elxsi<br>St. Paul, MN (Remote)</div>
-      </div>
-      <div>
-        <div class="exp-role">Project Intern</div>
-        <ul class="exp-bullets">
-          <li>Analyzed investment data across 50+ digital health companies totaling over $12B and prepared sector rankings and a recommendation memo used for leadership planning discussions.</li>
-          <li>Reviewed FDA guidance and IMDRF frameworks for Software as a Medical Device (SaMD), preparing a reference guide for product development planning.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tag">SaMD Regulation</span><span class="tag">Market Analysis</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PUBLICATION & TRAINING (04) -->
-<div class="section-wrap">
-  <div class="section-header fade-in">
-    <span class="section-num">04</span>
-    <h2>Publication & Research Training</h2>
-  </div>
-  <div class="pub-card fade-in">
-    <div class="pub-icon">📄</div>
-    <div>
-      <div class="pub-journal">International Journal of Advanced and Applied Sciences, 10(12), 29-41 - December 2023</div>
-      <div class="pub-title"><a href="https://doi.org/10.21833/ijaas.2023.12.004" target="_blank">Current trends of artificial intelligence and applications in digital pathology: A comprehensive review</a></div>
-      <div class="pub-meta">Co-author. Peer-reviewed review covering ML and deep learning methods for biological tissue analysis, AI-assisted diagnostics, and computational pathology.</div>
-    </div>
-  </div>
-  <div class="training-card fade-in">
-    <div class="training-title">CITI Program - Human Research: Data or Specimens Only Research</div>
-    <div class="training-meta">Completed Basic Course, June 2026 (expires June 2029), covering research ethics, IRB regulations, records-based research, and HIPAA privacy protections.</div>
-  </div>
-</div>
-
-<!-- SKILLS (05) -->
-<div class="section-wrap-alt">
-  <div class="section-wrap-alt-inner">
-    <div class="section-header fade-in">
-      <span class="section-num">05</span>
-      <h2>Skills</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Applied Programming</div>
-        <ul class="skill-list">
-          <li>Python</li><li>R</li><li>SQL</li><li>MATLAB</li><li>LabVIEW</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Statistical / ML Methods</div>
-        <ul class="skill-list">
-          <li>Hypothesis Testing</li><li>Regression</li><li>Classification</li><li>Time-Series Analysis</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">GenAI / LLM (Project Exposure)</div>
-        <ul class="skill-list">
-          <li>CrewAI</li><li>OpenAI API</li><li>DeepSeek</li><li>Prompt Engineering</li><li>Multi-agent Systems</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Deep Learning / ML</div>
-        <ul class="skill-list">
-          <li>ResNet50</li><li>GoogLeNet</li><li>DenseNet</li><li>scikit-learn</li><li>Clustering</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Healthcare / Research Training</div>
-        <ul class="skill-list">
-          <li>FHIR R4 (project exposure)</li><li>HL7 (coursework)</li><li>HIE (coursework)</li><li>CITI Human Research Training</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Databases / Tools</div>
-        <ul class="skill-list">
-          <li>Microsoft Access</li><li>SQLite</li><li>MySQL</li><li>Google BigQuery (project exposure)</li><li>Git / GitHub</li><li>Excel</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">Cloud & Development Tools</div>
-        <ul class="skill-list">
-          <li>AWS EC2 / S3 (prototype testing)</li><li>VS Code</li><li>Fusion 360</li>
-        </ul>
-      </div>
-      <div class="skill-group fade-in">
-        <div class="skill-group-title">BI & Visualization (Learning Projects)</div>
-        <ul class="skill-list">
-          <li>Power BI Desktop</li><li>DAX</li><li>Star Schema</li><li>matplotlib</li><li>seaborn</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT (06) -->
-<div class="section-wrap" id="contact">
-  <div class="section-header fade-in">
-    <span class="section-num">06</span>
-    <h2>Contact</h2>
-  </div>
-  <div class="contact-grid fade-in">
-    <div class="contact-text">
-      <h3>Let's work together.</h3>
-      <p>I'm seeking full-time opportunities in health informatics, healthcare data analysis, and research support. Open to relocation across the US.</p>
-      <a href="mailto:shreyas01karnad@outlook.com" class="btn-primary" style="display:inline-block;">Send me an email</a>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:shreyas01karnad@outlook.com" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        shreyas01karnad@outlook.com
-      </a>
-      <a href="tel:+17347097325" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .94h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        +1 (734) 709-7325
-      </a>
-      <a href="https://linkedin.com/in/shreyas-karnad" target="_blank" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        linkedin.com/in/shreyas-karnad
-      </a>
-      <a href="https://github.com/karnadsp" target="_blank" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-        github.com/karnadsp
-      </a>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <p>© 2026 Shreyas Karnad</p>
-  <p>Ann Arbor, MI · Open to relocation</p>
-</footer>
-
-<script>
-const root = document.documentElement;
-const elements = document.querySelectorAll('.fade-in');
-
-if (
-  'IntersectionObserver' in window &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-) {
-  try {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-
-    elements.forEach((element) => observer.observe(element));
-    root.classList.add('js-enabled');
-  } catch {
-    root.classList.remove('js-enabled');
-  }
-}
-</script>
-<script>
-const navigation = document.querySelector('nav');
-
-function updateNavigationHeight() {
-  document.documentElement.style.setProperty(
-    '--nav-height',
-    `${navigation.getBoundingClientRect().height}px`
-  );
-}
-
-updateNavigationHeight();
-window.addEventListener('resize', updateNavigationHeight);
-
-if ('ResizeObserver' in window) {
-  new ResizeObserver(updateNavigationHeight).observe(navigation);
-}
-</script>
+    if ('ResizeObserver' in window && navigation) {
+      const navigationObserver = new ResizeObserver(updateNavigationHeight);
+      navigationObserver.observe(navigation);
+    }
+  </script>
 </body>
 </html>
